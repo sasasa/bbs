@@ -1,0 +1,36 @@
+<%@question.answers.each do |answer| -%>
+<table>
+  <colgroup class="title"></colgroup>
+  <colgroup class="content"></colgroup>
+  <tr><th colspan="2"><%=t "activerecord.models.answer"%></th></tr>
+  <%=render :partial=>'questions/answers_rows', :locals=>{:answer=>answer} %>
+  <%if !answer.supplement_comment.blank? -%>
+    <tr>
+      <td><%=t "activerecord.attributes.answer.supplement_comment"%></td>
+      <td><%=h_br answer.supplement_comment %></td>
+    </tr>
+  <%elsif !logged_in? || (logged_in? && @question.user_id == current_user.id) -%>
+    <tr>
+      <td><%=t "activerecord.attributes.answer.supplement_comment"%></td>
+      <td>
+        <%=render :partial=>'questions/form_button',:locals=>{:text=>'この回答への補足をします',
+                   :url=>replay_edit_category_question_answer_path(@category, @question, answer)}%>
+      </td>
+    </tr>
+  <%end -%>
+  <%if !answer.thanks_comment.blank? -%>
+    <tr>
+      <td><%=t "activerecord.attributes.answer.thanks_comment"%></td>
+      <td><%=h_br answer.thanks_comment %></td>
+    </tr>
+  <%elsif !logged_in? || (logged_in? && @question.user_id == current_user.id) -%>
+    <tr>
+      <td><%=t "activerecord.attributes.answer.thanks_comment"%></td>
+      <td>
+        <%=render :partial=>'questions/form_button',:locals=>{:text=>'この回答へのお礼をします',
+                   :url=>replay_edit_category_question_answer_path(@category, @question, answer)}%>
+      </td>
+    </tr>
+  <%end -%>
+</table>
+<%end -%>

@@ -1,0 +1,45 @@
+<div class="section section-lv1">
+<h1><%=t "activerecord.models.answer"%><%=t "Confirmation"%></h1>
+<% form_for @answer, :url=>category_question_answers_path(@category, @question) do |f| -%>
+  <%= f.error_messages %>
+  <table>
+    <colgroup id="title" class="title"></colgroup>
+    <colgroup id="form_input" class="content"></colgroup>
+    <tbody>
+    <tr>
+      <td><%= f.label :content %></td>
+      <td><%=h_br @answer.content%><%= f.hidden_field :content %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :url %></td>
+      <td><%=h_br @answer.url%><%= f.hidden_field :url %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :kind %></td>
+      <td><%=h @answer.kind_text%><%= f.hidden_field :kind %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :confidence %></td>
+      <td><%=h @answer.confidence_text%><%= f.hidden_field :confidence %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :character %></td>
+      <td><%=h @answer.character_text%><%= f.hidden_field :character %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :receive_mail %></td>
+      <td><%=h @answer.receive_mail_text%><%= f.hidden_field :receive_mail %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= f.submit t("Register") %>
+        <%=link_to t("Return"), new_category_question_answer_path(@category, @question), :class=>"button" %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
+<%=render :partial=>'questions/question_table'%>
+<%=render :partial=>'questions/answers_table'%>
+</div>

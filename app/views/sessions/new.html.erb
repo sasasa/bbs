@@ -1,0 +1,21 @@
+<div class="section section-lv1">
+<h1><%=t 'Log in'%></h1>
+<% form_for :user, :url=>session_path do |f| -%>
+<p>
+  <%= f.label :login %><br />
+  <%= f.text_field :login %>
+</p>
+<p>
+  <%= f.label :password %><br/>
+  <%= f.password_field :password %>
+</p>
+<p>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+</p>
+<p>
+  <%= submit_tag t('Log in') %>
+</p>
+<% end -%>
+<%= link_to t("Sign up"), signup_path %>
+</div>

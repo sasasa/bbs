@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* prohibition url("...css") */
+@import "reset.css";
+@import "layout.css";
+@import "material.css";
+/* for IE5 */
+@media tty {
+i{content:"\";/*" "*/}} @import 'ie5.css'; /*";}
+}/* */
+

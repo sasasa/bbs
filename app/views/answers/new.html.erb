@@ -1,0 +1,55 @@
+<div class="section section-lv1">
+<h1><%=t "activerecord.models.answer"%><%=t "Create"%></h1>
+<% form_for @answer, :url=>preview_new_category_question_answer_path(@category, @question) do |f| -%>
+  <%= f.error_messages %>
+  <table>
+    <colgroup id="title" class="title"></colgroup>
+    <colgroup id="form_input" class="content"></colgroup>
+    <tbody>
+    <tr>
+      <td><%= f.label :content %></td>
+      <td><%= f.text_area :content %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :url %></td>
+      <td><%= f.text_field :url %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :kind %></td>
+      <td>
+        <%f.object.kind_mst.each do |val,text| -%>
+          <%= f.radio_button :kind, val %>
+          <%=label_for_radio_button f, :kind, val, text %><br />
+        <%end -%>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :confidence %></td>
+      <td>
+        <%f.object.confidence_mst.each do |val,text| -%>
+          <%= f.radio_button :confidence, val %>
+          <%=label_for_radio_button f, :confidence, val, text %><br />
+        <%end -%>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :character %></td>
+      <td><%= f.select :character, f.object.character_mst %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :receive_mail %></td>
+      <td><%= f.select :receive_mail, f.object.receive_mail_mst %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= f.submit t('Confirm') %>
+        <input name="reset" type="reset" value="<%=t 'Clear'%>" class="submit" />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
+<%=render :partial=>'questions/question_table'%>
+<%=render :partial=>'questions/answers_table'%>
+</div>

@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* centering */
+* html body {
+  text-align: center;
+}
+* html #header,
+* html #container,
+* html #footer {
+  text-align: left;
+}
+#header,
+#container,
+#footer {
+  width: 826px; /* border 2px */
+}
+/* header common */
+#header {
+  height:132px; /* padding 8px */
+}
+/* centering */
+#header #title {
+  text-align: center;
+}
+#header #title a {
+  display: block;
+  line-height: 0.45;
+  text-align: left;
+}
+#header #title span {
+  width: 820px; /* padding 20px */
+}
+/* categories_index */
+body.categories_index #container .colmun {
+  width:251px; /* border 2px */
+}
+/* categories_show */
+body.categories_show #container .colmun {
+  width: 372px; /* border 2px */
+}
+/* questions_index */
+body.questions_index #container .section-lv1 #state {
+  width: 4em;
+}
+body.questions_index #container .section-lv1 #title {
+  width: 37em;
+}
+.solid {
+  width: 15.3em; /* border 2 */
+}
+/* table colgroup */
+table .title {
+  width: 8.9em;
+}
+/* table colgroup */
+table .content {
+  width: 34em;
+}
+th, td {
+  border: 1px solid #663300;
+  padding: 0.8em 0.5em;
+  text-align: left;
+  font-size: 100%;
+}
+/* error field */
+#errorExplanation {
+  width: 418px; /* border 4 padding 14 */
+}

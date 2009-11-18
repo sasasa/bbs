@@ -1,0 +1,19 @@
+<div class="section section-lv1 clearfix">
+  <h1><%=h @category.name%></h1>
+  <%@category.children_every_col.each_with_index do |sub_categories, i| -%>
+    <div class="colmun" id="col<%=i+1%>">
+      <%sub_categories.each do |sub_category| -%>
+      <div class="section section-lv2">
+        <h2><%=rightly_link_to sub_category %></h2>
+        <% condition_content_tag(:ul, sub_category) do -%>
+          <%sub_category.children.each do |descendant_category| -%>
+            <% content_tag :li do -%>
+            <h3><span><%=rightly_link_to descendant_category %></span></h3>
+            <%end -%>
+          <%end -%>
+        <%end -%>
+      </div><%# div.section-lv2 %>
+      <%end -%>
+    </div><%# div.colmun %>
+  <%end -%>
+</div><%# div.section-lv1 %>

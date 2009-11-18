@@ -1,0 +1,30 @@
+<div class="section section-lv1">
+<h1><%=t "activerecord.models.answer"%><%=t "Create thanks and supplement" %></h1>
+<%=render :partial=>'questions/question_table'%>
+<%form_for @answer, :url=>replay_preview_category_question_answer_path(@category, @question, @answer) do |f| -%>
+<%= f.error_messages %>
+<table>
+  <colgroup class="title"></colgroup>
+  <colgroup class="content"></colgroup>
+  <tbody>
+  <tr>
+    <td><%= f.label :supplement_comment %></td>
+    <td><%= f.text_area :supplement_comment %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :thanks_comment %></td>
+    <td><%= f.text_area :thanks_comment %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <%= f.submit t('Confirm') %>
+      <input name="reset" type="reset" value="<%=t 'Clear'%>" class="submit" />
+    </td>
+  </tr>
+  <tr><th colspan="2"><%=t "activerecord.models.answer"%></th></tr>
+  <%=render :partial=>'questions/answers_rows', :locals=>{:answer=>@answer} %>
+  </tbody>
+</table>
+<%end -%>
+</div>

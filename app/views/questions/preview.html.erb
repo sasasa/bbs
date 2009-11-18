@@ -1,0 +1,35 @@
+<div class="section section-lv1 clearfix">
+<h1><%=t "activerecord.models.question"%><%=t "Confirmation"%></h1>
+<% form_for(@question, :url=>category_questions_path(@category)) do |f| -%>
+  <%= f.error_messages %>
+  <table>
+    <colgroup id="title" class="title"></colgroup>
+    <colgroup id="form_input" class="content"></colgroup>
+    <tbody>
+    <tr>
+      <th><%= f.label :title %></th>
+      <td><%=h @question.title %><%= f.hidden_field :title %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :content %></th>
+      <td><%=h_br @question.content %><%= f.hidden_field :content %></td>
+    </tr>
+    <tr>
+      <th><%=f.label :state %></th>
+      <td><%=h @question.state_text %><%= f.hidden_field :state %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :receive_mail %></th>
+      <td><%=h @question.receive_mail_text %><%= f.hidden_field :receive_mail %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= f.submit t("Register") %>
+        <%=link_to t("Return"), new_category_question_path(@category), :class=>"button" %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end -%>
+</div>

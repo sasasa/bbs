@@ -1,0 +1,40 @@
+<div class="section section-lv1 clearfix">
+<h1><%=t "activerecord.models.question"%><%=t "Create"%></h1>
+<% form_for(@question, :url=>preview_new_category_question_path(@category)) do |f| -%>
+  <%= f.error_messages %>
+  <table>
+    <colgroup id="title" class="title"></colgroup>
+    <colgroup id="form_input" class="content"></colgroup>
+    <tbody>
+    <tr>
+      <th><%= f.label :title %></th>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :content %></th>
+      <td><%= f.text_area :content %></td>
+    </tr>
+    <tr>
+      <th><%=f.label :state %></th>
+      <td>
+      <%f.object.state_mst.each do |val,text|%>
+        <%= f.radio_button :state, val %>
+        <%=label_for_radio_button f, :state, val, text %><br />
+      <%end%>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :receive_mail %></th>
+      <td><%= f.select :receive_mail, f.object.receive_mail_mst %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= f.submit t('Confirm') %>
+        <input name="reset" type="reset" value="<%=t 'Clear'%>" class="submit" />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end -%>
+</div>

@@ -1,0 +1,33 @@
+<div class="section section-lv1">
+<h1><%=t "activerecord.models.question"%> - <%=t "activerecord.models.answer"%></h1>
+<%=render :partial=>'question_table'%>
+<%if @question.is_closed -%>
+  <p>この質問に対する回答は締め切られました。</p>
+<%else -%>
+  <div class="button_wrap">
+  <%if !logged_in? || (logged_in? && @question.user_id != current_user.id ) -%>
+    <%=render :partial=>'form_button',:locals=>{:text=>'この質問に回答します',
+               :url=>new_category_question_answer_path(@category, @question)}%>
+  <%end -%>
+  </div>
+  <div class="button_wrap">
+  <%if !logged_in? || (logged_in? && @question.user_id == current_user.id) -%>
+    <%form_for @question, :url=>category_question_path(@category, @question) do |f| -%>
+      <%=f.hidden_field :is_closed, :value=>1 %>
+      <%=f.submit *login_prefix('質問を締め切ります')%>
+    <%end -%>
+  <%end -%>
+  </div>
+  <div style="clear:both;"></div>
+<%end -%>
+<%=render :partial=>'answers_table'%>
+</div>
+
+<%#if RAILS_ENV=="development"%>
+  <%#=render :partial=>'form_button',:locals=>{:text=>'この質問に回答します',
+             :url=>new_category_question_answer_path(@category, @question)}%>
+  <%#form_for @question, :url=>category_question_path(@category, @question) do |f|%>
+    <%#=f.hidden_field :is_closed, :value=>1 %>
+    <%#=f.submit *login_prefix('質問を締め切ります')%>
+  <%#end%>
+<%#end%>

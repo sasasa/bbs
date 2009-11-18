@@ -1,0 +1,24 @@
+<div class="section section-lv1 clearfix">
+<h1><%=t 'activerecord.models.category'%></h1>
+<% @root_categories_every_col.each_with_index do |root_categories,i| -%>
+<div class="colmun" id="col<%=i+1%>">
+  <% root_categories.each do |root| -%>
+    <div class="section section-lv2">
+      <h2><%=rightly_link_to root%></h2>
+      <%root.children.each do |sub_category| -%>
+        <div class="section section-lv3">
+          <h3><%=rightly_link_to sub_category %></h3>
+          <% condition_content_tag(:ul, sub_category) do -%>
+            <%sub_category.children.each do |descendant_category| -%>
+              <% content_tag :li do -%>
+              <h4><span><%=rightly_link_to descendant_category %></span></h4>
+              <%end -%>
+            <%end -%>
+          <%end -%>
+        </div><%# div.section-lv3 %>
+      <%end -%>
+    </div><%# div.section-lv2 %>
+  <%end -%>
+  </div><%# div#col#{num} %>
+<% end -%>
+</div><%# div.section-lv1 %>

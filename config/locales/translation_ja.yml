@@ -1,0 +1,75 @@
+ja:
+  "Sign up": サインアップ
+  "Log in": ログイン
+  "Log out": ログアウト
+  "Home": ホーム
+  "Create": の登録
+  "Confirmation": の確認
+  "Create thanks and supplement": へのお礼と補足の登録
+  "Confirmation thanks and supplement": へのお礼と補足の確認
+  "Update": の更新
+  "Return": 戻る
+  "Register": 登録する
+  "Confirm": 確認する
+  "Clear": クリアする
+
+  activerecord: 
+    models: 
+      user: "ユーザー"  #g
+      question: "質問"  #g
+      category: "カテゴリー"  #g
+      answer: "回答"  #g
+
+    attributes: 
+      user: 
+        login: "ログイン"  #g
+        name: "名前"  #g
+        email: "Eメール"  #g
+        password: "パスワード"  #g
+        password_confirmation: "パスワードの確認"  #g
+        crypted_password: "暗号化されたパスワード"  #g
+        remember_me: "次回から自動的にログイン"  #g
+        salt: "塩"  #g
+        remember_token: "覚えてトークン"  #g
+        remember_token_expires_at: "トークンの記憶で期限が切れる"  #g
+        activation_code: "アクティベーションコード"  #g
+        activated_at: "で活性化"  #g
+        state: "状態"  #g
+        deleted_at: "で削除"  #g
+        questions: "質問"  #g
+        answers: "回答"  #g
+
+      question: 
+        title: "タイトル"  #g
+        category: "投稿カテゴリー"  #g
+        content: "質問内容"  #g
+        state: "状態"  #g
+        is_closed: "締め切る"  #g
+        receive_mail: "回答通知メール"  #g
+        user: "質問者"  #g
+        created_at: "質問投稿日時"  #g
+        answer: "答え"  #g
+
+      category: 
+        name: "名前"  #g
+        children: "子供たち"  #g
+        parent: "親"  #g
+        questions: "質問"  #g
+        is_most_underlayer: "ほとんどの地層は"  #g
+
+      answer: 
+        content: "回答内容"  #g
+        supplement_comment: "この回答への補足"  #g
+        thanks_comment: "この回答へのお礼"  #g
+        url: "参考URL"  #g
+        kind_short: "種類"  #g
+        kind: "回答の種類"  #g
+        confidence_short: "自信"  #g
+        confidence: "回答に対する自信"  #g
+        character_short: "どんな人"  #g
+        character: "あなたはどんな人"  #g
+        receive_mail: "回答通知メール"  #g
+        question: "質問"  #g
+        user: "回答者"  #g
+        created_at: "回答日時"  #g
+

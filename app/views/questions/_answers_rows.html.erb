@@ -1,0 +1,22 @@
+<tr>
+  <td><%=t "activerecord.attributes.answer.user"%>：<%=h answer.user.name %></td>
+  <td rowspan="2"><%=h_br answer.content %></td>
+</tr>
+<tr>
+  <td>
+    <%=t "activerecord.attributes.answer.kind_short"%>：<%=h answer.kind_text %><br />
+    <%=t "activerecord.attributes.answer.character_short"%>：<%=h answer.character_text %><br />
+    <%=t "activerecord.attributes.answer.confidence_short"%>：<%=h answer.confidence_text %><br />
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    <%=t "activerecord.attributes.answer.created_at"%>：<%=h(format_str answer.created_at) %>
+  </td>
+</tr>
+<%unless answer.url.blank? -%>
+  <tr>
+    <td><%=t "activerecord.attributes.answer.url"%></td>
+    <td><%=h_br answer.url %></td>
+  </tr>
+<%end -%>

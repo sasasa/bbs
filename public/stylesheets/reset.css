@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+/* scroll bar bug */
+html {
+  overflow: scroll;
+  overflow: -moz-scrollbars-vertical;
+  overflow-x: scroll;
+}
+/* style reset */
+html,body,div,h1,h2,
+h3,h4,h5,h6,p,ul,ol,
+li,dl,dt,dd,table,
+th,td,form,fieldset {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 1.0;
+  word-break: break-all;
+  color: #343434;
+}
+ol, ul {
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+}
+img { border: 0; }
+address,em {
+  font-style: normal;
+}
+
+/* font size reset */
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.8.0r4
+*/
+body {
+  font:13px/1.231 arial,helvetica,clean,sans-serif;
+  *font-size:small;
+  *font:x-small;
+}
+select,input,button,textarea,button {
+  font:99% arial,helvetica,clean,sans-serif;
+}
+table {
+  font-size:inherit;
+  font:100%;
+}
+pre,code,kbd,samp,tt {
+  font-family:monospace;
+  *font-size:108%;
+  line-height:100%;
+}
+/* font size reset */
+/* yahoo end */
+
+/* font face */
+* {
+  font-family:
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    "メイリオ", Meiryo,
+    Osaka,
+    "ＭＳ Ｐゴシック", "MS P Gothic",
+    sans-serif;
+}
+/* font face for ie7 */
+*:first-child+html * {
+  font-family:
+    "メイリオ", Meiryo,
+    "ＭＳ Ｐゴシック", "MS P Gothic",
+    sans-serif;
+  /*for hasLayout bug */
+  letter-spacing: 0;
+}
+/* font face for ie6 */
+* html * {
+  font-family:
+    "メイリオ", Meiryo,
+    "ＭＳ Ｐゴシック", "MS P Gothic",
+    sans-serif;
+}
+/* clear fix huck */
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix { display: inline-table; }
+/* except ie mac \*/
+* html .clearfix { height: 1% }
+*+html .clearfix { height: 1% }
+.clearfix { display: block; }
+/**/

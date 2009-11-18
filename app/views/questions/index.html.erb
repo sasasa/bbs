@@ -1,0 +1,38 @@
+<div class="section section-lv1 clearfix">
+<h1><%=h @category.name %></h1>
+<%= will_paginate @questions, :previous_label=>'&#171;前', :next_label=>'次&#187;' %>
+<table>
+  <colgroup id="state"></colgroup>
+  <colgroup id="title"></colgroup>
+  <colgroup id="user"></colgroup>
+  <colgroup id="answer"></colgroup>
+  <thead>
+    <tr class="title">
+      <th><%=t "activerecord.attributes.question.state"%></th>
+      <th><%=t "activerecord.attributes.question.title"%></th>
+      <th><%=t "activerecord.attributes.question.created_at"%>&nbsp;/&nbsp;<%=t "activerecord.attributes.question.user"%></th>
+      <th><%=t "activerecord.attributes.question.answer"%></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @questions.each do |question| -%>
+    <tr>
+      <td>
+        <div class="state<%=h question.state %>">
+          <span><%=h question.state_text%></span>
+        </div>
+      </td>
+      <td><%=link_to h(question.title), category_question_path(@category, question) %></td>
+      <td>
+        <%=h(format_str question.created_at) %><br />
+        <%=h question.user.name %>
+      </td>
+      <td><%=h question.answers.size %></td>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>
+<%= will_paginate @questions, :previous_label=>'&#171;前', :next_label=>'次&#187;' %>
+<%=render :partial=>'questions/form_button',:locals=>{:text=>'新しい質問をする',
+           :url=>new_category_question_path(@category)}%>
+</div>

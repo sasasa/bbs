@@ -1,0 +1,3532 @@
+data444:
+  id: 1
+  name: ライフ
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:54
+  updated_at: 2009-11-08 13:37:55
+
+data445:
+  id: 2
+  name: 恋愛・人生相談
+  parent_id: 1
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:56
+
+data446:
+  id: 3
+  name: 結婚
+  parent_id: 1
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:56
+
+data447:
+  id: 4
+  name: 出産・育児
+  parent_id: 1
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:57
+
+data448:
+  id: 5
+  name: 料理・グルメ
+  parent_id: 1
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:57
+
+data449:
+  id: 6
+  name: 生活お役立ち
+  parent_id: 1
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:58
+
+data450:
+  id: 7
+  name: 家電製品
+  parent_id: 1
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:55
+
+data451:
+  id: 8
+  name: 住まい
+  parent_id: 1
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:59
+
+data452:
+  id: 9
+  name: ペット
+  parent_id: 1
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:59
+
+data453:
+  id: 10
+  name: その他(ライフ)
+  parent_id: 1
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:55
+  updated_at: 2009-11-08 13:37:55
+
+data454:
+  id: 11
+  name: 恋愛相談
+  parent_id: 2
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data455:
+  id: 12
+  name: 夫婦・家族
+  parent_id: 2
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data456:
+  id: 13
+  name: 社会・職場
+  parent_id: 2
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data457:
+  id: 14
+  name: いじめ相談
+  parent_id: 2
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data458:
+  id: 15
+  name: シニアライフ
+  parent_id: 2
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data459:
+  id: 16
+  name: その他(恋愛・人生相談)
+  parent_id: 2
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data460:
+  id: 17
+  name: 段取り・結婚準備
+  parent_id: 3
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data461:
+  id: 18
+  name: 挙式・披露宴
+  parent_id: 3
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:56
+  updated_at: 2009-11-08 13:37:56
+
+data462:
+  id: 19
+  name: ハネムーン・新生活
+  parent_id: 3
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data463:
+  id: 20
+  name: その他(結婚)
+  parent_id: 3
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data464:
+  id: 21
+  name: 妊娠・出産
+  parent_id: 4
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data465:
+  id: 22
+  name: 育児
+  parent_id: 4
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data466:
+  id: 23
+  name: その他(出産・育児)
+  parent_id: 4
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data467:
+  id: 24
+  name: 素材・食材
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data468:
+  id: 25
+  name: 地方特産・名産
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data469:
+  id: 26
+  name: 料理レシピ
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data470:
+  id: 27
+  name: お酒
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data471:
+  id: 28
+  name: お茶・ドリンク
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:57
+  updated_at: 2009-11-08 13:37:57
+
+data472:
+  id: 29
+  name: スイーツ
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data473:
+  id: 30
+  name: 食器・キッチン用品
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data474:
+  id: 31
+  name: その他(料理・グルメ)
+  parent_id: 5
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data475:
+  id: 32
+  name: 季節の行事
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data476:
+  id: 33
+  name: 家事・生活
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data477:
+  id: 34
+  name: マナー・冠婚葬祭
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data478:
+  id: 35
+  name: 防犯・セキュリティ
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data479:
+  id: 36
+  name: コンビニ・ファーストフード
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data480:
+  id: 37
+  name: 正月・年末年始
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data481:
+  id: 38
+  name: リサイクル
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data482:
+  id: 39
+  name: その他(生活お役立ち)
+  parent_id: 6
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:58
+  updated_at: 2009-11-08 13:37:58
+
+data483:
+  id: 40
+  name: 建築・リフォーム
+  parent_id: 8
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data484:
+  id: 41
+  name: インテリア・エクステリア
+  parent_id: 8
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data485:
+  id: 42
+  name: ガーデニング
+  parent_id: 8
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data486:
+  id: 43
+  name: DIY(日曜大工)
+  parent_id: 8
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data487:
+  id: 44
+  name: 不動産・引っ越し
+  parent_id: 8
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data488:
+  id: 45
+  name: その他(住まい)
+  parent_id: 8
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data489:
+  id: 46
+  name: 犬
+  parent_id: 9
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data490:
+  id: 47
+  name: 猫
+  parent_id: 9
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data491:
+  id: 48
+  name: 小動物
+  parent_id: 9
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data492:
+  id: 49
+  name: 熱帯魚
+  parent_id: 9
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:37:59
+  updated_at: 2009-11-08 13:37:59
+
+data493:
+  id: 50
+  name: その他(ペット)
+  parent_id: 9
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data494:
+  id: 51
+  name: 美容＆健康
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data495:
+  id: 52
+  name: コスメティック
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data496:
+  id: 53
+  name: スキンケア
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data497:
+  id: 54
+  name: ヘアケア
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data498:
+  id: 55
+  name: デンタルケア
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data499:
+  id: 56
+  name: ダイエット＆フィットネス
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data500:
+  id: 57
+  name: ファッション
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:00
+
+data501:
+  id: 58
+  name: メンズファッション/メンズビューティー
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:00
+  updated_at: 2009-11-08 13:38:01
+
+data502:
+  id: 59
+  name: キッズファッション/流行
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data503:
+  id: 60
+  name: 健康
+  parent_id: 51
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data504:
+  id: 61
+  name: その他(美容＆健康)
+  parent_id: 51
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data505:
+  id: 62
+  name: 禁煙・禁酒
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data506:
+  id: 63
+  name: 栄養
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data507:
+  id: 64
+  name: メンタルヘルス
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data508:
+  id: 65
+  name: 病気
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data509:
+  id: 66
+  name: 癌
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data510:
+  id: 67
+  name: 女性の病気
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:01
+  updated_at: 2009-11-08 13:38:01
+
+data511:
+  id: 68
+  name: ヘルスケア(健康管理)
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:02
+
+data512:
+  id: 69
+  name: 性の悩み
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:02
+
+data513:
+  id: 70
+  name: その他(健康)
+  parent_id: 60
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:02
+
+data514:
+  id: 71
+  name: 趣味
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:02
+
+data515:
+  id: 72
+  name: AV機器
+  parent_id: 71
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:03
+
+data516:
+  id: 73
+  name: アウトドア
+  parent_id: 71
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:03
+
+data517:
+  id: 74
+  name: 占い
+  parent_id: 71
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:02
+
+data518:
+  id: 75
+  name: 車
+  parent_id: 71
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:04
+
+data519:
+  id: 76
+  name: 読書
+  parent_id: 71
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:04
+
+data520:
+  id: 77
+  name: 芸術・アート
+  parent_id: 71
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:05
+
+data521:
+  id: 78
+  name: ラジコン・模型・フィギュア
+  parent_id: 71
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:02
+
+data522:
+  id: 79
+  name: その他(趣味)
+  parent_id: 71
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:02
+  updated_at: 2009-11-08 13:38:03
+
+data523:
+  id: 80
+  name: オーディオ
+  parent_id: 72
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data524:
+  id: 81
+  name: DVDプレーヤー
+  parent_id: 72
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data525:
+  id: 82
+  name: iPod・携帯音楽プレーヤー
+  parent_id: 72
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data526:
+  id: 83
+  name: TV＆ビデオデッキ
+  parent_id: 72
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data527:
+  id: 84
+  name: カメラ全般
+  parent_id: 72
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data528:
+  id: 85
+  name: その他(AV機器)
+  parent_id: 72
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data529:
+  id: 86
+  name: 登山・キャンプ
+  parent_id: 73
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data530:
+  id: 87
+  name: フィッシング
+  parent_id: 73
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data531:
+  id: 88
+  name: BBQ・アウトドア料理
+  parent_id: 73
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data532:
+  id: 89
+  name: 鉄道＆路線
+  parent_id: 73
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:03
+  updated_at: 2009-11-08 13:38:03
+
+data533:
+  id: 90
+  name: その他(アウトドア)
+  parent_id: 73
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data534:
+  id: 91
+  name: 国産車
+  parent_id: 75
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data535:
+  id: 92
+  name: 輸入車
+  parent_id: 75
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data536:
+  id: 93
+  name: 中古車売買
+  parent_id: 75
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data537:
+  id: 94
+  name: バイク
+  parent_id: 75
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data538:
+  id: 95
+  name: 自転車
+  parent_id: 75
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data539:
+  id: 96
+  name: その他(車)
+  parent_id: 75
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data540:
+  id: 97
+  name: 書籍・文庫
+  parent_id: 76
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data541:
+  id: 98
+  name: 雑誌
+  parent_id: 76
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data542:
+  id: 99
+  name: コミック
+  parent_id: 76
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:04
+
+data543:
+  id: 100
+  name: 絵本・子供の本
+  parent_id: 76
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:04
+  updated_at: 2009-11-08 13:38:05
+
+data544:
+  id: 101
+  name: 画集・写真集
+  parent_id: 76
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data545:
+  id: 102
+  name: その他(読書)
+  parent_id: 76
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data546:
+  id: 103
+  name: 絵画・写真・オブジェ
+  parent_id: 77
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data547:
+  id: 104
+  name: 書道
+  parent_id: 77
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data548:
+  id: 105
+  name: 茶道・華道
+  parent_id: 77
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data549:
+  id: 106
+  name: 手芸・ホビークラフト
+  parent_id: 77
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data550:
+  id: 107
+  name: その他(芸術・アート)
+  parent_id: 77
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data551:
+  id: 108
+  name: このQ&Aコミュニティーについて
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:05
+
+data552:
+  id: 109
+  name: デジタルライフ
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:06
+
+data553:
+  id: 110
+  name: 携帯・PHS
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:05
+  updated_at: 2009-11-08 13:38:08
+
+data554:
+  id: 111
+  name: ワンセグ放送
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:06
+
+data555:
+  id: 112
+  name: E-Mail
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:06
+
+data556:
+  id: 113
+  name: ネットショッピング
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:08
+
+data557:
+  id: 114
+  name: ポイントサービス
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:06
+
+data558:
+  id: 115
+  name: ゲーム
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:09
+
+data559:
+  id: 116
+  name: ブログ
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:06
+
+data560:
+  id: 117
+  name: スパイウェア対策
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:06
+
+data561:
+  id: 118
+  name: ウィルス対策
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:06
+
+data562:
+  id: 119
+  name: ネットトラブル
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:06
+  updated_at: 2009-11-08 13:38:07
+
+data563:
+  id: 120
+  name: Windows
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:09
+
+data564:
+  id: 121
+  name: Macintosh
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:07
+
+data565:
+  id: 122
+  name: ハードウェア
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:10
+
+data566:
+  id: 123
+  name: PCパーツ・周辺機器
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:10
+
+data567:
+  id: 124
+  name: ソフトウェア
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:11
+
+data568:
+  id: 125
+  name: インターネット接続
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:12
+
+data569:
+  id: 126
+  name: マルチメディア
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:12
+
+data570:
+  id: 127
+  name: 通信
+  parent_id: 109
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:13
+
+data571:
+  id: 128
+  name: SNS
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:07
+
+data572:
+  id: 129
+  name: その他(デジタルライフ)
+  parent_id: 109
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:07
+
+data573:
+  id: 130
+  name: DoCoMo
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:07
+  updated_at: 2009-11-08 13:38:07
+
+data574:
+  id: 131
+  name: au
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data575:
+  id: 132
+  name: SoftBank
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data576:
+  id: 133
+  name: WILLCOM
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data577:
+  id: 134
+  name: イーモバイル
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data578:
+  id: 135
+  name: スマートフォン
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data579:
+  id: 136
+  name: アバター
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data580:
+  id: 137
+  name: ゲーム・デコメ・電子書籍
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data581:
+  id: 138
+  name: 着うた・着メロ・待受・動画
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data582:
+  id: 139
+  name: その他(携帯・PHS)
+  parent_id: 110
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data583:
+  id: 140
+  name: オークション
+  parent_id: 113
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:08
+
+data584:
+  id: 141
+  name: ネット通販
+  parent_id: 113
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:08
+  updated_at: 2009-11-08 13:38:09
+
+data585:
+  id: 142
+  name: その他(ネットショッピング)
+  parent_id: 113
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data586:
+  id: 143
+  name: オンラインゲーム
+  parent_id: 115
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data587:
+  id: 144
+  name: ゲーム機
+  parent_id: 115
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data588:
+  id: 145
+  name: ゲームソフト
+  parent_id: 115
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data589:
+  id: 146
+  name: その他(ゲーム)
+  parent_id: 115
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data590:
+  id: 147
+  name: Windows 7
+  parent_id: 120
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data591:
+  id: 148
+  name: Windows Vista
+  parent_id: 120
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data592:
+  id: 149
+  name: Windows XP
+  parent_id: 120
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data593:
+  id: 150
+  name: Windows Me
+  parent_id: 120
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:09
+
+data594:
+  id: 151
+  name: Windows NT/2000
+  parent_id: 120
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:09
+  updated_at: 2009-11-08 13:38:10
+
+data595:
+  id: 152
+  name: Windows 95/98
+  parent_id: 120
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data596:
+  id: 153
+  name: その他(Windows)
+  parent_id: 120
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data597:
+  id: 154
+  name: デスクトップPC
+  parent_id: 122
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data598:
+  id: 155
+  name: ノートPC
+  parent_id: 122
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data599:
+  id: 156
+  name: モバイル端末
+  parent_id: 122
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data600:
+  id: 157
+  name: その他(ハードウェア)
+  parent_id: 122
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data601:
+  id: 158
+  name: プリンター＆スキャナー
+  parent_id: 123
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data602:
+  id: 159
+  name: ディスプレイ
+  parent_id: 123
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data603:
+  id: 160
+  name: ビデオカード
+  parent_id: 123
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:10
+
+data604:
+  id: 161
+  name: サウンドカード
+  parent_id: 123
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:10
+  updated_at: 2009-11-08 13:38:11
+
+data605:
+  id: 162
+  name: ネットワーク機器
+  parent_id: 123
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data606:
+  id: 163
+  name: ワイヤレス・無線LAN
+  parent_id: 123
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data607:
+  id: 164
+  name: その他(PCパーツ・周辺機器)
+  parent_id: 123
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data608:
+  id: 165
+  name: MS Office
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data609:
+  id: 166
+  name: Office系ソフト
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data610:
+  id: 167
+  name: 動画・画像処理
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data611:
+  id: 168
+  name: ホームページ作成ソフト
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data612:
+  id: 169
+  name: ブラウザ
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:11
+
+data613:
+  id: 170
+  name: フリーウェア
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:11
+  updated_at: 2009-11-08 13:38:12
+
+data614:
+  id: 171
+  name: はがきソフト
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data615:
+  id: 172
+  name: その他(ソフトウェア)
+  parent_id: 124
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data616:
+  id: 173
+  name: ISP(プロバイダ)
+  parent_id: 125
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data617:
+  id: 174
+  name: ホームページスペース・ASP
+  parent_id: 125
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data618:
+  id: 175
+  name: FTTH(光ファイバー)
+  parent_id: 125
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data619:
+  id: 176
+  name: ADSL
+  parent_id: 125
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data620:
+  id: 177
+  name: ISDN
+  parent_id: 125
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data621:
+  id: 178
+  name: その他(インターネット接続)
+  parent_id: 125
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data622:
+  id: 179
+  name: デジタルカメラ
+  parent_id: 126
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:12
+  updated_at: 2009-11-08 13:38:12
+
+data623:
+  id: 180
+  name: デジタルビデオカメラ
+  parent_id: 126
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data624:
+  id: 181
+  name: メディア(記憶媒体)
+  parent_id: 126
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data625:
+  id: 182
+  name: その他(マルチメディア)
+  parent_id: 126
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data626:
+  id: 183
+  name: IP電話
+  parent_id: 127
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data627:
+  id: 184
+  name: 固定電話
+  parent_id: 127
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data628:
+  id: 185
+  name: FAX
+  parent_id: 127
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data629:
+  id: 186
+  name: その他(通信)
+  parent_id: 127
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data630:
+  id: 187
+  name: ビジネス＆キャリア
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data631:
+  id: 188
+  name: 経営情報システム
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data632:
+  id: 189
+  name: 財務・会計・経理
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:13
+
+data633:
+  id: 190
+  name: 起業
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:13
+  updated_at: 2009-11-08 13:38:14
+
+data634:
+  id: 191
+  name: SOHO
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data635:
+  id: 192
+  name: インターネットビジネス
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data636:
+  id: 193
+  name: SEO対策
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data637:
+  id: 194
+  name: システムエンジニアリング
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data638:
+  id: 195
+  name: 就職・転職
+  parent_id: 187
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:15
+
+data639:
+  id: 196
+  name: 資格
+  parent_id: 187
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:15
+
+data640:
+  id: 197
+  name: 特許
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data641:
+  id: 198
+  name: クリエイティブ
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data642:
+  id: 199
+  name: マーケティング
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data643:
+  id: 200
+  name: コンサルティング
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:14
+
+data644:
+  id: 201
+  name: その他(ビジネス＆キャリア)
+  parent_id: 187
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:14
+  updated_at: 2009-11-08 13:38:15
+
+data645:
+  id: 202
+  name: アルバイト・パート
+  parent_id: 195
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data646:
+  id: 203
+  name: 就職
+  parent_id: 195
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data647:
+  id: 204
+  name: 転職
+  parent_id: 195
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data648:
+  id: 205
+  name: 派遣
+  parent_id: 195
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data649:
+  id: 206
+  name: 履歴書
+  parent_id: 195
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data650:
+  id: 207
+  name: その他(就職・転職)
+  parent_id: 195
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data651:
+  id: 208
+  name: 行政書士・司法書士
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data652:
+  id: 209
+  name: 公認会計士
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:15
+  updated_at: 2009-11-08 13:38:15
+
+data653:
+  id: 210
+  name: 簿記
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data654:
+  id: 211
+  name: 情報処理技術者
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data655:
+  id: 212
+  name: Microsoft認定技術者
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data656:
+  id: 213
+  name: TOEFL・TOEIC・英語検定
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data657:
+  id: 214
+  name: 旅行業務取扱管理者
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data658:
+  id: 215
+  name: 栄養士
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data659:
+  id: 216
+  name: 建築士
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data660:
+  id: 217
+  name: 販売士
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data661:
+  id: 218
+  name: フィナンシャルプランナー
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:16
+
+data662:
+  id: 219
+  name: 美容師・理容師
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:16
+  updated_at: 2009-11-08 13:38:17
+
+data663:
+  id: 220
+  name: 看護師
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data664:
+  id: 221
+  name: その他(資格)
+  parent_id: 196
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data665:
+  id: 222
+  name: 社会
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data666:
+  id: 223
+  name: 社会問題
+  parent_id: 222
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:18
+
+data667:
+  id: 224
+  name: 法律
+  parent_id: 222
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data668:
+  id: 225
+  name: 経済
+  parent_id: 222
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data669:
+  id: 226
+  name: 政治
+  parent_id: 222
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data670:
+  id: 227
+  name: 行政
+  parent_id: 222
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data671:
+  id: 228
+  name: 医療
+  parent_id: 222
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:17
+
+data672:
+  id: 229
+  name: 福祉
+  parent_id: 222
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:19
+
+data673:
+  id: 230
+  name: ボランティア
+  parent_id: 222
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:17
+  updated_at: 2009-11-08 13:38:18
+
+data674:
+  id: 231
+  name: カルチャー
+  parent_id: 222
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:19
+
+data675:
+  id: 232
+  name: エネルギー
+  parent_id: 222
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:19
+
+data676:
+  id: 233
+  name: その他(社会)
+  parent_id: 222
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data677:
+  id: 234
+  name: ニュース・時事問題
+  parent_id: 223
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data678:
+  id: 235
+  name: メディア・マスコミ
+  parent_id: 223
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data679:
+  id: 236
+  name: 教育問題
+  parent_id: 223
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data680:
+  id: 237
+  name: 防災 ・災害
+  parent_id: 223
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data681:
+  id: 238
+  name: 自然環境問題
+  parent_id: 223
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data682:
+  id: 239
+  name: その他(社会問題)
+  parent_id: 223
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data683:
+  id: 240
+  name: 介護
+  parent_id: 229
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:18
+  updated_at: 2009-11-08 13:38:18
+
+data684:
+  id: 241
+  name: 施設
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:19
+  updated_at: 2009-11-09 06:44:38
+
+data685:
+  id: 242
+  name: その他(福祉)
+  parent_id: 229
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:19
+  updated_at: 2009-11-08 13:38:19
+
+data686:
+  id: 243
+  name: 流行・カルチャー
+  parent_id: 231
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:19
+  updated_at: 2009-11-08 13:38:19
+
+data687:
+  id: 244
+  name: 伝統文化・行事
+  parent_id: 231
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:19
+  updated_at: 2009-11-08 13:38:19
+
+data688:
+  id: 245
+  name: その他(カルチャー)
+  parent_id: 231
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:19
+  updated_at: 2009-11-08 13:38:19
+
+data689:
+  id: 246
+  name: 電力発電
+  parent_id: 232
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:19
+  updated_at: 2009-11-08 13:38:19
+
+data690:
+  id: 247
+  name: エコロジー
+  parent_id: 232
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:19
+  updated_at: 2009-11-08 13:38:19
+
+data691:
+  id: 248
+  name: その他(エネルギー)
+  parent_id: 232
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:20
+  updated_at: 2009-11-08 13:38:20
+
+data692:
+  id: 249
+  name: マネー
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:20
+  updated_at: 2009-11-08 13:38:20
+
+data693:
+  id: 250
+  name: 暮らしのマネー
+  parent_id: 249
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:20
+  updated_at: 2009-11-08 13:38:21
+
+data694:
+  id: 251
+  name: 保険
+  parent_id: 249
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:20
+  updated_at: 2009-11-08 13:38:21
+
+data695:
+  id: 252
+  name: 投資・融資
+  parent_id: 249
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:22
+
+data696:
+  id: 253
+  name: その他(マネー)
+  parent_id: 249
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data697:
+  id: 254
+  name: 貯蓄
+  parent_id: 250
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data698:
+  id: 255
+  name: 年金
+  parent_id: 250
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data699:
+  id: 256
+  name: 税金
+  parent_id: 250
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data700:
+  id: 257
+  name: ネットバンキング
+  parent_id: 250
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data701:
+  id: 258
+  name: 消費者金融
+  parent_id: 250
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data702:
+  id: 259
+  name: その他(暮らしのマネー)
+  parent_id: 250
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data703:
+  id: 260
+  name: 生命保険
+  parent_id: 251
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:21
+
+data704:
+  id: 261
+  name: 損害保険
+  parent_id: 251
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:21
+  updated_at: 2009-11-08 13:38:22
+
+data705:
+  id: 262
+  name: 雇用保険
+  parent_id: 251
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data706:
+  id: 263
+  name: 健康保険
+  parent_id: 251
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data707:
+  id: 264
+  name: その他(保険)
+  parent_id: 251
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data708:
+  id: 265
+  name: 株式全般
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data709:
+  id: 266
+  name: 国内株
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data710:
+  id: 267
+  name: 北米株
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data711:
+  id: 268
+  name: ヨーロッパ株
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data712:
+  id: 269
+  name: 中国株
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data713:
+  id: 270
+  name: 新興国株
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data714:
+  id: 271
+  name: 投資信託
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:22
+  updated_at: 2009-11-08 13:38:22
+
+data715:
+  id: 272
+  name: 為替
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data716:
+  id: 273
+  name: 先物
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data717:
+  id: 274
+  name: 債券
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data718:
+  id: 275
+  name: 融資
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data719:
+  id: 276
+  name: その他(投資・融資)
+  parent_id: 252
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data720:
+  id: 277
+  name: エンターテインメント
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data721:
+  id: 278
+  name: TV
+  parent_id: 277
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:24
+
+data722:
+  id: 279
+  name: アニメ
+  parent_id: 277
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data723:
+  id: 280
+  name: 映画
+  parent_id: 277
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:25
+
+data724:
+  id: 281
+  name: 演劇・古典芸能
+  parent_id: 277
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:23
+
+data725:
+  id: 282
+  name: 音楽・ダンス
+  parent_id: 277
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:26
+
+data726:
+  id: 283
+  name: スポーツ
+  parent_id: 277
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:23
+  updated_at: 2009-11-08 13:38:27
+
+data727:
+  id: 284
+  name: ギャンブル
+  parent_id: 277
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:29
+
+data728:
+  id: 285
+  name: 卓上ゲーム
+  parent_id: 277
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:29
+
+data729:
+  id: 286
+  name: その他(エンターテインメント)
+  parent_id: 277
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data730:
+  id: 287
+  name: 国内芸能人・タレント
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data731:
+  id: 288
+  name: 国内お笑い芸人
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data732:
+  id: 289
+  name: 欧米芸能人・タレント
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data733:
+  id: 290
+  name: 韓流芸能人・タレント
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data734:
+  id: 291
+  name: 華流芸能人・タレント
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data735:
+  id: 292
+  name: ドラマ
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data736:
+  id: 293
+  name: 番組
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:24
+
+data737:
+  id: 294
+  name: CM
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:24
+  updated_at: 2009-11-08 13:38:25
+
+data738:
+  id: 295
+  name: 懐かしの芸能人・TV
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:25
+  updated_at: 2009-11-08 13:38:25
+
+data739:
+  id: 296
+  name: CS・BS
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:25
+  updated_at: 2009-11-08 13:38:25
+
+data740:
+  id: 297
+  name: その他(TV)
+  parent_id: 278
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:25
+  updated_at: 2009-11-08 13:38:25
+
+data741:
+  id: 298
+  name: 俳優・女優
+  parent_id: 280
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:25
+  updated_at: 2009-11-08 13:38:25
+
+data742:
+  id: 299
+  name: 邦画
+  parent_id: 280
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:25
+  updated_at: 2009-11-08 13:38:25
+
+data743:
+  id: 300
+  name: 洋画
+  parent_id: 280
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:25
+  updated_at: 2009-11-08 13:38:25
+
+data744:
+  id: 301
+  name: アジア映画
+  parent_id: 280
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:25
+  updated_at: 2009-11-08 13:38:26
+
+data745:
+  id: 302
+  name: その他(映画)
+  parent_id: 280
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data746:
+  id: 303
+  name: 国内アーティスト
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data747:
+  id: 304
+  name: 海外アーティスト
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data748:
+  id: 305
+  name: インディーズ
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data749:
+  id: 306
+  name: ライブ・コンサート
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data750:
+  id: 307
+  name: 音楽配信
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data751:
+  id: 308
+  name: クラシック
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data752:
+  id: 309
+  name: 現代音楽
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data753:
+  id: 310
+  name: 楽器・演奏
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:26
+
+data754:
+  id: 311
+  name: ダンス
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:26
+  updated_at: 2009-11-08 13:38:27
+
+data755:
+  id: 312
+  name: カラオケ
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data756:
+  id: 313
+  name: ナツメロ
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data757:
+  id: 314
+  name: その他(音楽・ダンス)
+  parent_id: 282
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data758:
+  id: 315
+  name: 野球
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data759:
+  id: 316
+  name: ソフトボール
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data760:
+  id: 317
+  name: サッカー
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data761:
+  id: 318
+  name: 陸上
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data762:
+  id: 319
+  name: 水泳
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data763:
+  id: 320
+  name: 体操・新体操
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data764:
+  id: 321
+  name: テニス
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:27
+  updated_at: 2009-11-08 13:38:27
+
+data765:
+  id: 322
+  name: バスケットボール＆バレーボール
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data766:
+  id: 323
+  name: ゴルフ
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data767:
+  id: 324
+  name: 卓球
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data768:
+  id: 325
+  name: バドミントン
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data769:
+  id: 326
+  name: 格闘技
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data770:
+  id: 327
+  name: マリンスポーツ
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data771:
+  id: 328
+  name: スピードスケート
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data772:
+  id: 329
+  name: フィギュアスケート
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data773:
+  id: 330
+  name: スキー・スノーボード
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data774:
+  id: 331
+  name: モータースポーツ
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data775:
+  id: 332
+  name: 北京五輪
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data776:
+  id: 333
+  name: その他(スポーツ)
+  parent_id: 283
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:28
+
+data777:
+  id: 334
+  name: 競馬
+  parent_id: 284
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:28
+  updated_at: 2009-11-08 13:38:29
+
+data778:
+  id: 335
+  name: パチンコ・スロット
+  parent_id: 284
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data779:
+  id: 336
+  name: その他(ギャンブル)
+  parent_id: 284
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data780:
+  id: 337
+  name: 囲碁・将棋
+  parent_id: 285
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data781:
+  id: 338
+  name: 麻雀
+  parent_id: 285
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data782:
+  id: 339
+  name: その他(卓上ゲーム)
+  parent_id: 285
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data783:
+  id: 340
+  name: 学問＆教育
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data784:
+  id: 341
+  name: 外国語
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data785:
+  id: 342
+  name: 英語
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data786:
+  id: 343
+  name: 韓国語
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data787:
+  id: 344
+  name: 中国語
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:29
+
+data788:
+  id: 345
+  name: 国語
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:29
+  updated_at: 2009-11-08 13:38:30
+
+data789:
+  id: 346
+  name: 考古学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data790:
+  id: 347
+  name: 文学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data791:
+  id: 348
+  name: 歴史
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data792:
+  id: 349
+  name: 経済学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data793:
+  id: 350
+  name: 心理学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data794:
+  id: 351
+  name: 地理
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data795:
+  id: 352
+  name: 美術
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data796:
+  id: 353
+  name: 音楽
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data797:
+  id: 354
+  name: 環境学・エコロジー
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:30
+
+data798:
+  id: 355
+  name: 化学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:30
+  updated_at: 2009-11-08 13:38:31
+
+data799:
+  id: 356
+  name: 科学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data800:
+  id: 357
+  name: 数学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data801:
+  id: 358
+  name: 物理学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data802:
+  id: 359
+  name: 生物学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data803:
+  id: 360
+  name: 地学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data804:
+  id: 361
+  name: 天文学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data805:
+  id: 362
+  name: 農学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data806:
+  id: 363
+  name: 哲学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data807:
+  id: 364
+  name: 学校
+  parent_id: 340
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:32
+
+data808:
+  id: 365
+  name: 留学
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data809:
+  id: 366
+  name: その他(学問＆教育)
+  parent_id: 340
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:31
+  updated_at: 2009-11-08 13:38:31
+
+data810:
+  id: 367
+  name: 大学院
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:32
+  updated_at: 2009-11-08 13:38:32
+
+data811:
+  id: 368
+  name: 大学・短大
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:32
+  updated_at: 2009-11-08 13:38:32
+
+data812:
+  id: 369
+  name: 高校
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:32
+  updated_at: 2009-11-08 13:38:32
+
+data813:
+  id: 370
+  name: 中学校
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:32
+  updated_at: 2009-11-08 13:38:32
+
+data814:
+  id: 371
+  name: 小学校
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:32
+  updated_at: 2009-11-08 13:38:32
+
+data815:
+  id: 372
+  name: 幼稚園・保育所
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:32
+  updated_at: 2009-11-08 13:38:32
+
+data816:
+  id: 373
+  name: 専門学校
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:32
+  updated_at: 2009-11-08 13:38:32
+
+data817:
+  id: 374
+  name: イベント
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data818:
+  id: 375
+  name: その他(学校)
+  parent_id: 364
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data819:
+  id: 376
+  name: ［地域情報］ 旅行・レジャー・生活
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data820:
+  id: 377
+  name: 国内
+  parent_id: 376
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data821:
+  id: 378
+  name: 海外
+  parent_id: 376
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:34
+
+data822:
+  id: 379
+  name: その他(［地域情報］ 旅行・レジャー・生活)
+  parent_id: 376
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data823:
+  id: 380
+  name: 遊園地・テーマパーク(全国)
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data824:
+  id: 381
+  name: 食べ歩き(全国)
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data825:
+  id: 382
+  name: 国内旅行(全国)
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:33
+
+data826:
+  id: 383
+  name: 北海道
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:33
+  updated_at: 2009-11-08 13:38:34
+
+data827:
+  id: 384
+  name: 東北
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data828:
+  id: 385
+  name: 関東
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data829:
+  id: 386
+  name: 甲信越・北陸
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data830:
+  id: 387
+  name: 東海
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data831:
+  id: 388
+  name: 関西
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data832:
+  id: 389
+  name: 中国・四国
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data833:
+  id: 390
+  name: 九州・沖縄
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data834:
+  id: 391
+  name: その他(国内)
+  parent_id: 377
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data835:
+  id: 392
+  name: 海外旅行(全般)
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:34
+  updated_at: 2009-11-08 13:38:34
+
+data836:
+  id: 393
+  name: アジア
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data837:
+  id: 394
+  name: アフリカ
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data838:
+  id: 395
+  name: オセアニア
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data839:
+  id: 396
+  name: ヨーロッパ
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data840:
+  id: 397
+  name: 北アメリカ
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data841:
+  id: 398
+  name: 中南米・カリブ
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data842:
+  id: 399
+  name: 中東
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data843:
+  id: 400
+  name: その他(海外)
+  parent_id: 378
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:35
+
+data844:
+  id: 401
+  name: ［技術者向］ コンピューター
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:35
+  updated_at: 2009-11-08 13:38:36
+
+data845:
+  id: 402
+  name: ハードウェア(サーバー)
+  parent_id: 401
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:36
+
+data846:
+  id: 403
+  name: OS
+  parent_id: 401
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:37
+
+data847:
+  id: 404
+  name: データベース
+  parent_id: 401
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:37
+
+data848:
+  id: 405
+  name: プログラミング
+  parent_id: 401
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:37
+
+data849:
+  id: 406
+  name: 開発
+  parent_id: 401
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:39
+
+data850:
+  id: 407
+  name: 業務ソフトウェア
+  parent_id: 401
+  is_most_underlayer: 0
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:39
+
+data851:
+  id: 408
+  name: 運用・管理
+  parent_id: 401
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:36
+
+data852:
+  id: 409
+  name: ネットワークセキュリティ
+  parent_id: 401
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:36
+
+data853:
+  id: 410
+  name: その他(［技術者向］ コンピューター)
+  parent_id: 401
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:36
+
+data854:
+  id: 411
+  name: Solaris系OS
+  parent_id: 403
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:36
+  updated_at: 2009-11-08 13:38:36
+
+data855:
+  id: 412
+  name: Linux系OS
+  parent_id: 403
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data856:
+  id: 413
+  name: BSD系OS
+  parent_id: 403
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data857:
+  id: 414
+  name: Windows系OS
+  parent_id: 403
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data858:
+  id: 415
+  name: その他(OS)
+  parent_id: 403
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data859:
+  id: 416
+  name: SQL Server
+  parent_id: 404
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data860:
+  id: 417
+  name: Oracle
+  parent_id: 404
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data861:
+  id: 418
+  name: PostgreSQL
+  parent_id: 404
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data862:
+  id: 419
+  name: MySQL
+  parent_id: 404
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data863:
+  id: 420
+  name: その他(データベース)
+  parent_id: 404
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data864:
+  id: 421
+  name: Microsoft ASP
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data865:
+  id: 422
+  name: C&C++
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:37
+  updated_at: 2009-11-08 13:38:37
+
+data866:
+  id: 423
+  name: CGI
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data867:
+  id: 424
+  name: Flash
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data868:
+  id: 425
+  name: HTML
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data869:
+  id: 426
+  name: Java
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data870:
+  id: 427
+  name: JavaScript
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data871:
+  id: 428
+  name: Perl
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data872:
+  id: 429
+  name: PHP
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data873:
+  id: 430
+  name: Visual Basic
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data874:
+  id: 431
+  name: Web Page Design
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data875:
+  id: 432
+  name: XML
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:38
+  updated_at: 2009-11-08 13:38:38
+
+data876:
+  id: 433
+  name: AJAX
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data877:
+  id: 434
+  name: Ruby
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data878:
+  id: 435
+  name: その他(プログラミング)
+  parent_id: 405
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data879:
+  id: 436
+  name: スケーラビリティ
+  parent_id: 406
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data880:
+  id: 437
+  name: オープンソース
+  parent_id: 407
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-09 06:44:41
+
+data881:
+  id: 438
+  name: その他(開発)
+  parent_id: 406
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data882:
+  id: 439
+  name: CAD・DTP
+  parent_id: 407
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data883:
+  id: 440
+  name: 会計ソフト
+  parent_id: 407
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data884:
+  id: 441
+  name: グラフィックソフト
+  parent_id: 407
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data885:
+  id: 442
+  name: グループウェア
+  parent_id: 407
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:39
+
+data886:
+  id: 443
+  name: その他(業務ソフトウェア)
+  parent_id: 407
+  is_most_underlayer: 1
+  created_at: 2009-11-08 13:38:39
+  updated_at: 2009-11-08 13:38:40
+

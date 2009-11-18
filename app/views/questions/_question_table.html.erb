@@ -1,0 +1,16 @@
+<table>
+  <colgroup class="title"></colgroup>
+  <colgroup class="content"></colgroup>
+  <tr><th colspan="2"><%=t "activerecord.models.question"%></th></tr>
+  <tr>
+    <td><%=t "activerecord.attributes.question.user"%>：<%=h @question.user.name %></td>
+    <td><%=h @question.title %></td>
+  </tr>
+  <tr>
+    <td><%=t "activerecord.attributes.question.state"%>：<%=h @question.state%></td>
+    <td><%=h_br @question.content %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%=t "activerecord.attributes.question.created_at"%>：<%=h(format_str @question.created_at) %></td>
+  </tr>
+</table>

@@ -1,0 +1,52 @@
+<%#*<h1>Editing answer</h1>%>
+
+<%# form_for(@answer) do |f| %>
+  <%#= f.error_messages %>
+
+  <%#*<p>%>
+    <%#= f.label :content %><br />
+    <%#= f.text_area :content %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :supplement_comment %><br />
+    <%#= f.text_area :supplement_comment %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :thanks_comment %><br />
+    <%#= f.text_area :thanks_comment %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :url %><br />
+    <%#= f.text_field :url %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :kind %><br />
+    <%#= f.text_field :kind %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :confidence %><br />
+    <%#= f.text_field :confidence %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :character %><br />
+    <%#= f.text_field :character %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :can_receive_mail %><br />
+    <%#= f.check_box :can_receive_mail %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :user_id %><br />
+    <%#= f.text_field :user_id %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.label :question_id %><br />
+    <%#= f.text_field :question_id %>
+  <%#*</p>%>
+  <%#*<p>%>
+    <%#= f.submit 'Update' %>
+  <%#*</p>%>
+<%# end %>
+
+<%#= link_to 'Show', @answer %> |
+<%#= link_to 'Back', answers_path %>
