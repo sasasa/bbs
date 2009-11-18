@@ -1,5 +1,4 @@
-## to_yamlの日本語化(http://d.hatena.ne.jp/Rommy/20061229/1167406811より)
-# 初期化時に読み込ませる
+# to_yamlを文字列として表示する 初期化時に読み込ませる
 require "yaml"
 class String
   def is_binary_data?

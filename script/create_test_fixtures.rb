@@ -13,7 +13,7 @@ testu#{i}:
   id:                        #{i}
   login:                     sasasa#{i}
   name:                     名#{i} 太郎
-  email:                     masaakisaeki#{i}@gmail.com
+  email:                     quentin#{i}@gmail.com
   salt:                      abdf5db3fe2b8fd7bfba77c74806a38cf6eea0ae
   crypted_password:        33e19f4f8f824ef64702afadac530fa24c868c64
   created_at:               2009-11-07 07:50:53
