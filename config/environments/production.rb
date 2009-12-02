@@ -26,4 +26,4 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
-HOSTNAME="ec2-174-129-55-26.compute-1.amazonaws.com"
+HOSTNAME="ec2-174-129-59-36.compute-1.amazonaws.com"

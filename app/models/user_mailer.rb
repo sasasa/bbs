@@ -2,9 +2,7 @@ class UserMailer < ActionMailer::Base
   def signup_notification(user)
     setup_email(user)
     @subject    += "アクティベーションを行ってください"#'Please activate your new account'
-  
     @body[:url]  = activate_url(:host=>HOSTNAME, :activation_code=>user.activation_code)
-  
   end
   
   def activation(user)
