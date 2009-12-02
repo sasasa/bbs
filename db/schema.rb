@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20091108170711) do
     t.datetime "updated_at"
   end
 
+  add_index "answers", ["question_id", "created_at"], :name => "index_answers_on_question_id_and_created_at"
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
   add_index "answers", ["user_id"], :name => "index_answers_on_user_id"
 

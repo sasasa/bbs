@@ -38,18 +38,20 @@ module ApplicationHelper
 
   # 一行あたりの文字数がlimitを超えると自動で改行コードを挿入する
   # word-break が効かないFirefoxなどでテーブルの枠が際限無く広がるのを防止
-  def length_limitation(text, limit=60)
+  def length_limitation(input_text, limit=60)
     changed =
-      text.map do |row|
-        ret_text = ""
-        row_length = row.jlength
-        # 行の長さがlimitを超えていてかつ全てアルファベットや数値や記号のみのとき
-        while row_length >= limit && row =~ /^[[:alnum:][:punct:]]+$/
-            row[limit,0] = "\n"
-            ret_text << row[0,limit+1]
-            row = row[limit+1, row.jlength]
+      input_text.map do |row|
+        ret_text =
+          "".tap do |txt|
             row_length = row.jlength
-        end
+            # 行の長さがlimitを超えていてかつ全てアルファベットや数値や記号のみのとき
+            while row_length >= limit && row =~ /^[[:alnum:][:punct:]]+$/
+                row[limit,0] = "\n"
+                txt << row[0,limit+1]
+                row = row[limit+1, row.jlength]
+                row_length = row.jlength
+            end
+          end
         ret_text.blank? ? row : ret_text
       end
     changed.join("")
