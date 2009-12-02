@@ -26,7 +26,7 @@
   </div>
   <div id="title"><%=link_to "Question*Answer", root_path %><span>Hoge And Moge</span></div>
   <p id="topic_path">
-    <%=topic_path_link %>
+    <%=raw topic_path_link %>
   </p>
   <p id="notice"><%= flash[:notice] %></p>
 </div>
