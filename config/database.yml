@@ -21,7 +21,7 @@ development:
   database: bbs_development
   pool: 5
   username: root
-  password: root
+  password:
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -34,7 +34,7 @@ test:
   database: bbs_test
   pool: 5
   username: root
-  password: root
+  password:
   host: localhost
 
 production:
@@ -44,5 +44,5 @@ production:
   database: bbs_production
   pool: 5
   username: root
-  password: root
+  password:
   host: localhost

@@ -2,3 +2,4 @@ nbproject/*
 config/local_environment.rb
 log/*.log
 tmp/*
+*.log
