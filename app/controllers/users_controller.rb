@@ -102,6 +102,7 @@ class UsersController < ApplicationController
 protected
   # 2 @user
   def check_valid_user
+    logger.debug "filter2 check_valid_user => @user"
     @user = User.find(params[:id])
     raise "filter2" unless @user.id == current_user.id
   end

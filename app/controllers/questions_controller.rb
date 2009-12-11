@@ -74,14 +74,16 @@ class QuestionsController < ApplicationController
 protected
   # オーバーライド 質問に権限があるユーザの操作かチェック 2 @question
   def check_valid_user
+    logger.debug "filter2 check_valid_user => @question"
     @question = Question.find(params[:id])
     raise "filter2" unless @question.user_id == current_user.id
   end
 
   # オーバーライド パンくず作成 3 @category @topic_path @question
   def create_topic_path
+    logger.debug "filter3 create_topic_path => @category @topic_path @question"
     super
-    @question ||= Question.find_by_id(params[:id]) if params[:id]
+    @question ||= Question.find(params[:id]) if params[:id]
     @topic_path <<
       case action_name
       when "show"
@@ -95,7 +97,8 @@ protected
 
   # カテゴリと質問の整合性チェック 5 @question
   def check_category_and_question_consistency
+    logger.debug "filter5 check_category_and_question_consistency => @question"
     @question ||= Question.find(params[:id])
-    raise "filter4" unless @question.category_id == @category.id
+    raise "filter5" unless @question.category_id == @category.id
   end
 end

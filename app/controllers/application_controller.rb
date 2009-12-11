@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
 protected
   # 各サブクラスでオーバーライド 2
   def check_valid_user
+    logger.debug "filter2 check_valid_user"
     raise
   end
 
@@ -30,8 +31,9 @@ protected
   # 満たない部分はオーバーライドして@topic_pathに追加していく
   # @topic_pathの構造 [[text1, path1],[text2, path2]]
   def create_topic_path
-    @category = Category.find_by_id(params[:category_id]) if params[:category_id]
-    @category = Category.find_by_id(params[:id]) if @category.blank? && controller_name == "categories" && params[:id]
+    logger.debug "filter3 create_topic_path => @category @topic_path"
+    @category = Category.find(params[:category_id]) if params[:category_id]
+    @category = Category.find(params[:id]) if @category.blank? && controller_name == "categories" && params[:id]
     @topic_path = []
     if @category
       @topic_path << @category
@@ -51,12 +53,14 @@ protected
 
   # 末端カテゴリのみ操作可能とする 4 @category
   def check_most_underlayer_category
+    logger.debug "filter4 check_most_underlayer_category => @category"
     @category ||= Category.find(params[:category_id])
-    raise "filter3" unless @category.is_most_underlayer
+    raise "filter4" unless @category.is_most_underlayer
   end
 
   # htmlの崩れを防止するため改行やスペースを削除
   def delete_space
+    logger.debug "after delete_space"
     response.body.gsub!(/\n/,"")
     response.body.gsub!(/>\s+</,"><")
   end

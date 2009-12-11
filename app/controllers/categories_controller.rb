@@ -14,5 +14,6 @@ class CategoriesController < ApplicationController
 # 操作権限チェック 2
 protected
   def check_valid_user
+    logger.debug "filter2 check_valid_user"
   end
 end

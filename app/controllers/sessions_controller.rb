@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
 
   # GET   /session OPからのredirect
   def show
-    create
+    # OpenID による認証 complete
+    open_id_complete
   end
 
   # /login
@@ -23,9 +24,7 @@ class SessionsController < ApplicationController
   # POST   /session
   def create
     logout_keeping_session!
-    if request.get? # OpenID による認証 complete
-      open_id_complete
-    elsif openid_url = params[:user][:openid_url] # OpenID による認証 begin
+    if openid_url = params[:user][:openid_url] # OpenID による認証 begin
       open_id_begin(openid_url)
     else
       # パスワードによる認証
@@ -106,5 +105,6 @@ protected
   end
   # 2
   def check_valid_user
+    logger.debug "filter2 check_valid_user"
   end
 end
