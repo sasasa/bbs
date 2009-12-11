@@ -5,9 +5,28 @@ class UsersController < ApplicationController
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
   # 上書き 1 @current_user
-  before_filter :login_required,   :except=>[:new, :create, :activate]
+  before_filter :login_required,   :except=>[:new, :create, :activate ]
   # 上書き 2 @user
-  before_filter :check_valid_user, :except=>[:new, :create, :activate]
+  before_filter :check_valid_user, :except=>[:new, :create, :activate, :new_login, :create_login]
+
+  # GET    /users/new_login
+  def new_login
+  end
+
+  # POST   /users/create_login
+  def create_login
+    current_user.login = params[:user][:login]
+    current_user.valid?
+    fail = current_user.errors.invalid?('login')
+    #ログインIDのみチェックする
+    if fail
+      render 'new_login'
+    else
+      current_user.save(false)
+      flash[:notice] = "ログイン名を登録しました。"
+      redirect_back_or_default(root_path)
+    end
+  end
 
   # /signup
   # GET    /users/new
@@ -25,12 +44,12 @@ class UsersController < ApplicationController
     success = @user && @user.valid?
 
     if success && @user.errors.empty?
-      redirect_back_or_default(root_path)
       flash[:notice] = "登録いただいたアドレスにメールを送信しましたのでご確認下さい。"#"Thanks for signing up!  We're sending you an email with your activation code."
+      redirect_back_or_default(root_path)
     else
       @user.password = @user.password_confirmation = nil
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
-      render :action => 'new'
+      render 'new'
     end
   end
 

@@ -22,7 +22,7 @@ ja:
 
     attributes: 
       user: 
-        login: "ログイン"  #g
+        login: "ログイン名"  #g
         name: "名前"  #g
         email: "Eメール"  #g
         password: "パスワード"  #g
@@ -38,7 +38,7 @@ ja:
         deleted_at: "で削除"  #g
         questions: "質問"  #g
         answers: "回答"  #g
-
+        openid_url: "OpenIDアカウント"  #g
       question: 
         title: "タイトル"  #g
         category: "投稿カテゴリー"  #g

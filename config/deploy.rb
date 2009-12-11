@@ -12,9 +12,9 @@ set :deploy_to, "/mnt/app"
 set :deploy_via, :copy
 ssh_options[:keys] = %w(/home/sa/rails_test.id)
 ssh_options[:user] = "root" 
-role :web, "ec2-174-129-59-36.compute-1.amazonaws.com"                          # Your HTTP server, Apache/etc
-role :app, "ec2-174-129-59-36.compute-1.amazonaws.com"                          # This may be the same as your `Web` server
-role :db,  "ec2-174-129-59-36.compute-1.amazonaws.com", :primary => true # This is where Rails migrations will run
+role :web, "ec2-75-101-232-3.compute-1.amazonaws.com"                          # Your HTTP server, Apache/etc
+role :app, "ec2-75-101-232-3.compute-1.amazonaws.com"                          # This may be the same as your `Web` server
+role :db,  "ec2-75-101-232-3.compute-1.amazonaws.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 # If you are using Passenger mod_rails uncomment this:
@@ -47,8 +47,8 @@ namespace :deploy do
 #  end
 #  after "deploy:update_code", "deploy:link_uploads"
 
-  desc "データベース設定ファイルにリンクをはる"
-  task :link_database_yml do
+  desc "リポジトリに上げないローカル固有設定ファイルにリンクをはる"
+  task :link_local_environment do
     run <<-CMD
       if [ ! -d #{shared_path}/config ];then
         mkdir -m 777 #{shared_path}/config;
@@ -60,7 +60,7 @@ namespace :deploy do
       ln -nfs #{shared_path}/config/local_environment.rb #{release_path}/config/local_environment.rb
     CMD
   end
-  after "deploy:update_code", "deploy:link_database_yml"
+  after "deploy:update_code", "deploy:link_local_environment"
 
 #  desc "ログをみる"
 #  task :tail_log, :roles=>:app do

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091108170711) do
+ActiveRecord::Schema.define(:version => 20091210122559) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(:version => 20091108170711) do
   end
 
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
+
+  create_table "open_id_authentication_associations", :force => true do |t|
+    t.integer "issued"
+    t.integer "lifetime"
+    t.string  "handle"
+    t.string  "assoc_type"
+    t.binary  "server_url"
+    t.binary  "secret"
+  end
+
+  create_table "open_id_authentication_nonces", :force => true do |t|
+    t.integer "timestamp",  :null => false
+    t.string  "server_url"
+    t.string  "salt",       :null => false
+  end
 
   create_table "questions", :force => true do |t|
     t.string   "title"
@@ -70,8 +85,10 @@ ActiveRecord::Schema.define(:version => 20091108170711) do
     t.datetime "activated_at"
     t.string   "state",                                    :default => "passive"
     t.datetime "deleted_at"
+    t.string   "identity_url"
   end
 
+  add_index "users", ["identity_url"], :name => "index_users_on_identity_url"
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
 end

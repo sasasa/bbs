@@ -213,6 +213,16 @@ body.answers_preview #errorExplanation {
   margin-bottom:10px;
 }
 
+/* sessions_new */
+/* sessions_create */
+body.sessions_new h2,
+body.sessions_create h2 {
+  margin-bottom: 10px;
+}
+body.sessions_new .section-lv2,
+body.sessions_create .section-lv2 {
+  margin-bottom: 25px;
+}
 
 /* footer */
 #footer {

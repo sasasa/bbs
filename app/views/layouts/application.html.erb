@@ -17,7 +17,7 @@
 <div id="header">
   <div id="current_login">
     <%if logged_in? -%>
-      ようこそ<%=h current_user.login %>さん：<%=link_to t("Log out"), logout_path %>
+      ようこそ<%=h current_user.display_login_name %>さん：<%=link_to t("Log out"), logout_path %>
     <%else -%>
       <%if login_link_necessary? -%>
         未ログイン：<%=link_to t("Log in"), login_path%>&nbsp;/&nbsp;<%=link_to t("Sign up"), signup_path %>
@@ -26,7 +26,7 @@
   </div>
   <div id="title"><%=link_to "Question*Answer", root_path %><span>Hoge And Moge</span></div>
   <p id="topic_path">
-    <%=raw topic_path_link %>
+    <%= topic_path_link %>
   </p>
   <p id="notice"><%= flash[:notice] %></p>
 </div>

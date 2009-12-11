@@ -32,21 +32,26 @@ class User < ActiveRecord::Base
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
   validates_format_of       :login,    :with => Authentication.login_regex, :message => "は英数値と.-_@のみで入力してください。"#Authentication.bad_login_message
-
-  validates_format_of       :name,     :with => Authentication.name_regex,  :message => "は表示可能な文字のみで入力してください。"#Authentication.bad_name_message, :allow_nil => true
-  validates_length_of       :name,     :maximum => 100
-
-  validates_presence_of     :email
-  validates_length_of       :email,    :within => 6..100 #r@a.wk
-  validates_uniqueness_of   :email
-  validates_format_of       :email,    :with => Authentication.email_regex, :message => "はメールの形式で入力してください。"#Authentication.bad_email_message
-
   
+  #OpenID認証でなくログイン認証の時のみバリデーションする(identity_urlがない場合)
+  with_options :unless=>lambda{ |u| u.identity_url } do |user|
+    user.validates_format_of       :name,     :with => Authentication.name_regex, :message => "は表示可能な文字のみで入力してください。"#Authentication.bad_name_message, :allow_nil => true
+    user.validates_length_of       :name,     :maximum => 100
 
+    user.validates_presence_of     :email
+    user.validates_length_of       :email,    :within => 6..100 #r@a.wk
+    user.validates_uniqueness_of   :email
+    user.validates_format_of       :email,    :with => Authentication.email_regex, :message => "はメールの形式で入力してください。"#Authentication.bad_email_message
+
+    user.validates_presence_of     :password,                   :if => :password_required?
+    user.validates_presence_of     :password_confirmation,      :if => :password_required?
+    user.validates_confirmation_of :password,                   :if => :password_required?
+    user.validates_length_of       :password, :within => 6..40, :if => :password_required?
+  end
   # 安全に倒してホワイトリストとするためカラム追加時に忘れないこと
   # 複数の権限から扱われるデータの際は一番低い権限に合わせる
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :remember_me
-  attr_accessor :remember_me
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :remember_me, :openid_url, :identity_url
+  attr_accessor :password, :remember_me, :openid_url
 
   has_many :questions, :dependent => :nullify, :order => 'created_at'
   has_many :answers, :dependent => :nullify, :order => 'created_at'
@@ -71,15 +76,14 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
 
-  protected
-    
+  # OpenIDでの登録の場合はloginがnilの場合がある
+  def display_login_name
+    login_was ? login : "名無し"
+  end
 
+  protected
     def make_activation_code
-  
       self.deleted_at = nil
-  
       self.activation_code = self.class.make_token
     end
-
-
 end

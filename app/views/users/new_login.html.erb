@@ -1,0 +1,12 @@
+<div class="section section-lv1">
+<h1><%= 'ログイン名を作成'%></h1>
+<% form_for :user, current_user, :url => create_login_users_path do |f| -%>
+<p>ログイン名を作成してください</p>
+<%= error_messages_for :user, :object=>current_user %>
+<p>
+  <%= f.label :login %><br/>
+  <%= f.text_field :login %>
+</p>
+<p><%= submit_tag '作成' %></p>
+<% end -%>
+</div>

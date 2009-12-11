@@ -18,39 +18,35 @@ class AnswersController < ApplicationController
 
   # GET /categories/1/questions/1/answers/new
   def new
-    @answer =
-      if flash[:answer].blank?
-        Answer.new.set_default_val
-      else
-        flash[:answer]
-      end
+    @answer = flash[:answer] ? flash[:answer] : Answer.new.set_default_val
     @question = Question.deep_include.find(params[:question_id])
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
   # GET POST /categories/1/questions/1/answers/new/preview
   def preview
     @question = Question.deep_include.find(params[:question_id])
     if request.post?
-      @answer = Answer.new(params[:answer]).set_attrs(:user_id=>current_user.id, :question_id=>params[:question_id])
-      flash[:answer] = @answer
-      respond_to do |format|
+      flash[:answer] = @answer = Answer.new(params[:answer]).set_attrs(:user_id=>current_user.id, :question_id=>params[:question_id])
         if @answer.valid?
-          format.html # preview.html.erb
+          #
         else
-          format.html { redirect_to new_category_question_answer_path(@category, @question) }
+          redirect_to new_category_question_answer_path(@category, @question)
         end
-      end
     elsif request.get? && !flash[:answer].blank?
-      respond_to do |format|
-        @answer = flash[:answer]
-        flash[:answer] = @answer
-        format.html # preview.html.erb
-      end
+      flash[:answer] = @answer = flash[:answer] #flashの寿命をのばす
     else
-      raise "invalid preview action call"
+      redirect_to new_category_question_answer_path(@category, @question)
+    end
+  end
+
+  # POST /categories/1/questions/1/answers
+  def create
+    @answer = Answer.new(params[:answer]).set_attrs(:user_id=>current_user.id, :question_id=>params[:question_id])
+    if @answer.save
+      flash[:notice] = "回答を作成しました。"#'Answer was successfully created.'
+      redirect_to category_question_path(params[:category_id], params[:question_id])
+    else
+      redirect_to new_category_question_answer_path(@category, @question)
     end
   end
 
@@ -58,43 +54,20 @@ class AnswersController < ApplicationController
   def edit
   end
 
-  # POST /categories/1/questions/1/answers
-  def create
-    @answer = Answer.new(params[:answer]).set_attrs(:user_id=>current_user.id, :question_id=>params[:question_id])
-
-    respond_to do |format|
-      if @answer.save
-        flash[:notice] = "回答を作成しました。"#'Answer was successfully created.'
-        format.html { redirect_to category_question_path(params[:category_id], params[:question_id])  }
-      else
-        @question = Question.deep_include.find(params[:question_id])
-        format.html { render :action => "new" }
-      end
-    end
-  end
-
   # PUT /categories/1/questions/1/answers/1
   def update
-    respond_to do |format|
-      if @answer.update_attributes(params[:answer])
-        flash[:notice] = 'Answer was successfully updated.'
-        format.html { redirect_to(@answer) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @answer.errors, :status => :unprocessable_entity }
-      end
+    if @answer.update_attributes(params[:answer])
+      flash[:notice] = 'Answer was successfully updated.'
+      redirect_to(@answer)
+    else
+      render "edit"
     end
   end
 
   # DELETE /categories/1/questions/1/answers/1
   def destroy
     @answer.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(answers_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(answers_url)
   end
   
   # このアクションは回答者ではなく質問者がアクセスする
@@ -110,21 +83,15 @@ class AnswersController < ApplicationController
       @answer.supplement_comment = params[:answer][:supplement_comment]
       @answer.thanks_comment = params[:answer][:thanks_comment]
       flash[:replay_answer] = @answer
-      respond_to do |format|
-        if @answer.valid?
-          format.html # replay_preview.html.erb
-        else
-          format.html { redirect_to replay_edit_category_question_answer_path(@category, @question, @answer) }
-        end
+      if @answer.valid?
+        #
+      else
+        redirect_to replay_edit_category_question_answer_path(@category, @question, @answer)
       end
     elsif request.get? && !flash[:replay_answer].blank?
-      respond_to do |format|
-        @answer = flash[:replay_answer]
-        flash[:replay_answer] = @answer
-        format.html # replay_preview.html.erb
-      end
+      flash[:replay_answer] = @answer = flash[:replay_answer] #flashの寿命をのばす
     else
-      raise "invalid replay_preview action call"
+      redirect_to replay_edit_category_question_answer_path(@category, @question, @answer)
     end
   end
 
@@ -133,13 +100,11 @@ class AnswersController < ApplicationController
   def replay_update
     @answer.supplement_comment = params[:answer][:supplement_comment]
     @answer.thanks_comment = params[:answer][:thanks_comment]
-    respond_to do |format|
-      if @answer.save
-        flash[:notice] = "回答へのお礼と補足の登録をしました。"#'Answer was successfully updated.'
-        format.html { redirect_to category_question_path(@category, @question) }
-      else
-        format.html { render :action => "replay_edit" }
-      end
+    if @answer.save
+      flash[:notice] = "回答へのお礼と補足の登録をしました。"#'Answer was successfully updated.'
+      redirect_to category_question_path(@category, @question)
+    else
+      redirect_to replay_edit_category_question_answer_path(@category, @question, @answer)
     end
   end
 

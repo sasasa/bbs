@@ -86,4 +86,7 @@ module ApplicationHelper
       ret_texts.join("") + h(last_text)
     end
   end
+
+  #XSS pluginによって今までHTMLタグを出力していたメソッドを指定する
+  safe_helper :topic_path_link, :h_br
 end

@@ -12,54 +12,31 @@ class QuestionsController < ApplicationController
   def index
     @category ||= Category.find(params[:category_id])
     @questions = Question.relate(@category).include.order_recent.paginate(:page => params[:page], :per_page => 5)
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
   end
 
   # GET categories/1/questions/1
   def show
     @question = Question.deep_include.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-    end
   end
 
   # GET categories/1/questions/new
   def new
-    @question =
-      if flash[:question].blank?
-        Question.new.set_default_val
-      else
-        flash[:question]
-      end
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    @question = flash[:question] ? flash[:question] : Question.new.set_default_val
   end
 
   # GET POST categories/1/questions/new/preview
   def preview
     if request.post?
-      @question = Question.new(params[:question]).set_attrs(:user_id=>current_user.id, :category_id=>@category.id)
-      flash[:question] = @question
-      respond_to do |format|
-        if @question.valid?
-          format.html # preview.html.erb
-        else
-          format.html { redirect_to new_category_question_path(@category) }
-        end
+      flash[:question] = @question = Question.new(params[:question]).set_attrs(:user_id=>current_user.id, :category_id=>@category.id)
+      if @question.valid?
+        #
+      else
+        redirect_to new_category_question_path(@category)
       end
     elsif request.get? && !flash[:question].blank?
-      respond_to do |format|
-        @question = flash[:question]
-        flash[:question] = @question
-        format.html # preview.html.erb
-      end
+      flash[:question] = @question = flash[:question] #flashの寿命をのばす
     else
-      raise "invalid preview action call"
+      redirect_to new_category_question_path(@category)
     end
   end
 
@@ -71,35 +48,27 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question]).set_attrs(:user_id=>current_user.id, :category_id=>@category.id)
 
-    respond_to do |format|
-      if @question.save
-        flash[:notice] = "質問を作成しました。"#'Question was successfully created.'
-        format.html { redirect_to category_question_path(@category, @question) }
-      else
-        format.html { render :action => "new" }
-      end
+    if @question.save
+      flash[:notice] = "質問を作成しました。"#'Question was successfully created.'
+      redirect_to category_question_path(@category, @question)
+    else
+      render "new"
     end
   end
 
   # 締め切りの変更
   # PUT /categories/1/questions/1
   def update
-    respond_to do |format|
-      if @question.update_attributes(params[:question])
-        flash[:notice] = "この質問に対する回答は締め切られました。"#'Question was successfully updated.'
-      end
-      format.html { redirect_to category_question_path(params[:category_id], @question) }
+    if @question.update_attributes(params[:question])
+      flash[:notice] = "この質問に対する回答は締め切られました。"#'Question was successfully updated.'
     end
+    redirect_to category_question_path(params[:category_id], @question)
   end
 
   # DELETE /categories/1/questions/1
   def destroy
     @question.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(questions_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(questions_url)
   end
 
 protected

@@ -92,6 +92,10 @@ module QueryReviewer
           "<span title=\"#{title}\">#{"%.3f" % duration}</span>"
         end
       end
+
+      extend RailsXss::SafeHelpers
+      #XSS pluginによって今までHTMLタグを出力していたメソッドを指定する
+      safe_helper :duration_with_color, :syntax_highlighted_sql
     end
   end
 end

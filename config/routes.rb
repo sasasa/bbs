@@ -15,9 +15,9 @@ ActionController::Routing::Routes.draw do |map|
                          :new => { :preview => [:post, :get] }
     end
   end
-  map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
-  map.resource :session
-
+  map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete },
+                        :collection => { :new_login=>:get,:create_login=>:post }
+  map.resource :session, :only => [:new, :create, :destroy, :show]
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

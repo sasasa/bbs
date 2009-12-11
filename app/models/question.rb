@@ -33,7 +33,7 @@ class Question < ActiveRecord::Base
   attr_text :state=>STATES, :receive_mail=>RECEIVE_MAILS
 
   validates_presence_of     :title, :content, :state
-  validates_length_of       :title,    :within => 5..40 ,   :allow_blank => true
+  validates_length_of       :title,    :within => 5..60 ,   :allow_blank => true
   validates_length_of       :content,  :within => 25..2000, :allow_blank => true
   validates_inclusion_of    :state,    :in=>STATES.keys,    :allow_blank => true
 
