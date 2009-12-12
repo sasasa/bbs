@@ -58,6 +58,13 @@
 }
 #container .section-lv1 h1 {
   padding-bottom: 20px;
+  font-size: 220%;
+}
+#container .section-lv2 h2 {
+  font-size: 140%;
+}
+#container .section-lv3 h3 {
+  font-size: 110%;
 }
 #container form p {
   padding-bottom: 10px;
@@ -95,7 +102,7 @@ body.categories_index #container .section-lv3 ul li{
 }
 body.categories_index #container .section-lv3 h4 {
   display: inline;
-  font-size: 90%;
+  font-size: 85%;
   margin-left: 5px;
   line-height: 1.3;
 }

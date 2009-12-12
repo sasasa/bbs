@@ -39,35 +39,44 @@ a.button:hover {
   border-right: 2px solid #666666;
   border-bottom: 2px solid #666666;
 }
+/* for ie7 */
+*:first-child+html .submit {
+  padding: 0 14px;
+}
 /* form input size */
 .solid {
   width: 15em;
-  font-size: mimedium;
+  font-size: 100%;
   border: 1px solid #999999;
 }
 .solid:focus {
   background-color: #F7F0E6;
 }
+textarea.solid {
+  height: 20em;
+  overflow: auto;
+}
 /* table default */
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin: 0;
   margin-bottom: 20px;
 }
 /* table colgroup */
 table .title {
   background-color:#F2B05F;
-  width: 10em;
+  width: 11em;
 }
 /* table colgroup */
 table .content {
   width: 35em;
 }
 th, td {
+  font-size: 100%;
   border: 1px solid #663300;
   padding: 0.8em 0.5em;
   text-align: left;
-  font-size: 100%;
 }
 /* error field */
 .fieldWithErrors {
