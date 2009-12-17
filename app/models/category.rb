@@ -12,6 +12,10 @@
 #
 
 class Category < ActiveRecord::Base
+  include ShowFieldsOmitable
+
+  acts_as_cached right_ttl
+
   #安全に倒してホワイトリストとするためカラム追加時に忘れないこと
   attr_accessible :name
 
@@ -19,6 +23,7 @@ class Category < ActiveRecord::Base
   has_many :questions, :dependent => :destroy, :order => 'created_at desc'
 
   named_scope :include, :include=>{:children=>:children}
+
   #acts_as_tree の rootを上書き
   named_scope :root,    :conditions => ["categories.parent_id IS NULL"], :order => 'id'
   #acts_as_tree の rootsを上書き
@@ -42,6 +47,12 @@ class Category < ActiveRecord::Base
     !is_most_underlayer
   end
 
+  def self.cache_include_find(parent_id)
+    Category.get_cache("Category.cache_include_find(#{parent_id})") do
+      include.find(parent_id)
+    end
+  end
+
   # カテゴリごとカラムに分けるため各サブカテゴリを等分して取得する
   # col_num 分割したいカラム数
   # 分割したサブカテゴリ
@@ -52,7 +63,15 @@ class Category < ActiveRecord::Base
   # カテゴリごとカラムに分けるため各カテゴリを等分して取得する
   # col_num 分割したいカラム数
   # 分割したカテゴリ
-  def self.root_categories_every_col(col_num = 3)
-    roots.include.in_groups(col_num, false)
+  def self.cache_root_categories_every_col(col_num = 3)
+    Category.get_cache("Category.cache_root_categories_every_col(#{col_num})") do
+      roots.include.in_groups(col_num, false)
+    end
+  end
+
+  def cache_ancestors
+    Category.get_cache("Category#cache_ancestors_#{self.id}") do
+      ancestors
+    end
   end
 end

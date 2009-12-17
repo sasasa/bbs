@@ -50,9 +50,9 @@ module AuthenticatedSystem
     #   skip_before_filter :login_required
     #   1
     def login_required
+      logger.debug "filter1 login_required => @current_user"
       authorized? || access_denied
     end
-
     # Redirect as appropriate when an access request fails.
     #
     # The default action is to redirect to the login screen.
@@ -105,7 +105,13 @@ module AuthenticatedSystem
 
     # Called from #current_user.  First attempt to login by the user id stored in the session.
     def login_from_session
-      self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
+      if session[:user_id]
+       begin
+         self.current_user = User.cache_find(session[:user_id])
+       rescue ActiveRecord::RecordNotFound
+         self.current_user = nil
+       end
+      end
     end
 
     # Called from #current_user.  Now, attempt to login by basic authentication information.
@@ -169,9 +175,12 @@ module AuthenticatedSystem
     def handle_remember_cookie!(new_cookie_flag)
       return unless @current_user
       case
-      when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
-      when new_cookie_flag        then @current_user.remember_me 
-      else                             @current_user.forget_me
+      when valid_remember_cookie?
+        @current_user.refresh_token # keeping same expiry date
+      when new_cookie_flag
+        @current_user.remember_me
+      else
+        @current_user.forget_me
       end
       send_remember_cookie!
     end

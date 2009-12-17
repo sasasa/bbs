@@ -43,6 +43,10 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(params[:answer]).set_attrs(:user_id=>current_user.id, :question_id=>params[:question_id])
     if @answer.save
+      #ここでキャッシュを失効させる
+      Question.expire_cache("Question.cache_paginate_order_recent(#{@category.id},#{session[:page]})")
+      Question.expire_cache("Question.cache_deep_include_find(#{@question.id})")
+      
       flash[:notice] = "回答を作成しました。"#'Answer was successfully created.'
       redirect_to category_question_path(params[:category_id], params[:question_id])
     else
@@ -112,16 +116,18 @@ protected
   # オーバーライド 回答に権限があるユーザの操作かチェック 2 @answer
   def check_valid_user
     logger.debug "filter2 check_valid_user => @answer"
-    @answer = Answer.find(params[:id])
-    raise "filter2" unless @answer.user_id == current_user.id
+    @answer ||= Answer.cache_find(params[:id])
+    raise "filter2" unless ret = (@answer.user_id == current_user.id)
+    ret
   end
+  memoize :check_valid_user
 
   # オーバーライド パンくず作成 3 @category @topic_path @question
   def create_topic_path
     logger.debug "filter3 create_topic_path => @category @topic_path @question"
     super
-    @question ||= Question.find_by_id(params[:question_id])
-    @topic_path << [@question.title, category_question_path(@category, @question)] if @question
+    @question ||= Question.cache_find(params[:question_id])
+    @topic_path << [@question.title, category_question_path(@category, @question)]
     @topic_path <<
       case action_name
       when "replay_edit", "replay_update"
@@ -138,35 +144,35 @@ protected
   # カテゴリと質問の整合性チェック 5 @question
   def check_category_and_question_consistency
     logger.debug "filter5 check_category_and_question_consistency => @question"
-    @question ||= Question.find(params[:question_id])
+    @question ||= Question.cache_find(params[:question_id])
     raise "filter5" unless @question.category_id == @category.id
   end
 
   # 質問と回答の整合性チェック 6 @answer
   def check_question_and_answer_consistency
     logger.debug "filter6 check_question_and_answer_consistency => @answer"
-    @answer ||= Answer.find(params[:id])
+    @answer ||= Answer.cache_find(params[:id])
     raise "filter6" unless @answer.question_id == @question.id
   end
   
   # 質問が締め切られているかチェック 7
   def check_question_closed
     logger.debug "filter7 check_question_closed => @question"
-    @question ||= Question.find(params[:question_id])
+    @question ||= Question.cache_find(params[:question_id])
     raise "filter7" if @question.is_closed
   end
 
   # 回答にお礼や補足できるのは質問者のみ 8
   def check_question_owner
     logger.debug "filter8 check_question_owner => @question"
-    @question ||= Question.find(params[:question_id])
+    @question ||= Question.cache_find(params[:question_id])
     redirect_to category_question_path(@category, @question) unless @question.user_id == current_user.id
   end
 
   # 自分で作った質問に自分で回答できないこと 9
   def check_no_question_owner
     logger.debug "filter9 check_no_question_owner => @question"
-    @question ||= Question.find(params[:question_id])
+    @question ||= Question.cache_find(params[:question_id])
     redirect_to category_question_path(@category, @question) if @question.user_id == current_user.id
   end
 end

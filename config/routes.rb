@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete },
-                        :collection => { :new_login=>:get,:create_login=>:post }
+                        :collection => { :new_login=>:get,:create_login=>[:post, :get] }
   map.resource :session, :only => [:new, :create, :destroy, :show]
   # The priority is based upon order of creation: first created -> highest priority.
 

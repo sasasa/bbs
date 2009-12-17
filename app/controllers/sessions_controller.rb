@@ -1,9 +1,8 @@
-# This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
   # 上書き 1 @current_user
   before_filter :login_required, :except=>[:new, :create, :show]
+  # ログインIDを持っているかチェック 1.5
+  before_filter :login_id_required, :except=>[:destroy]
 
   # GET   /session OPからのredirect
   def show
@@ -43,7 +42,7 @@ class SessionsController < ApplicationController
 protected
   def password_authentication
     if user = User.authenticate(params[:user][:login], params[:user][:password])
-      login_success(user, :after=>lambda{ redirect_back_or_default(root_path) } )
+      login_success(user){ redirect_back_or_default(root_path) }
     else
       auth_failed(:login=>params[:user][:login], :remember_me=>params[:user][:remember_me])
     end
@@ -57,35 +56,32 @@ protected
   
   def open_id_complete
     complete_open_id_authentication do |result, identity_url, sreg|
-      auth_failed if result.unsuccessful?
-      user = User.find_by_identity_url(identity_url)
-      if user && user.login
-        # ログインに成功し, すでにアカウントがある
-        login_success(user, :after=>lambda{ redirect_back_or_default(root_path) })
+      if result.unsuccessful?
+        auth_failed
       else
-        before_proc =
-          lambda {
-            unless user
-              user = User.new(:identity_url=>identity_url)
-              user.save(false)
-            end
-          }
-        # ログインには成功したけど, アカウントを所有していない
-        login_success(user, :before=>before_proc, :after=>lambda{ redirect_to new_login_users_path })
+        user = User.find_by_identity_url(identity_url)
+        if user && user.login
+          # ログインに成功し, すでにアカウントがある
+          login_success(user){ redirect_back_or_default(root_path) }
+        else
+          unless user
+            user = User.new(:identity_url=>identity_url)
+            user.save(false)
+          end
+          # ログインには成功したけど, アカウントを所有していない
+          login_success(user){ redirect_to new_login_users_path }
+        end
       end
     end
   end
 
   # OpenIDのときとパスワード認証で成功の時に呼ばれる
   # 前処理と後処理を指定する
-  def login_success(user, opt={})
-    before_proc = opt.delete(:before)#前処理
-    after_proc = opt.delete(:after)#後処理
-    before_proc.call if before_proc
-    self.current_user = user
-    handle_remember_cookie! (params[:user][:remember_me] == "1") if params[:user]
+  def login_success(user, &proc)
+    self.current_user = user #ここで@current_userが作成、ユーザIDがsessionに入る
+    handle_remember_cookie!(params[:user][:remember_me] == "1") if params[:user]
     flash[:notice] = "ログインに成功しました"#"Logged in successfully"
-    after_proc.call if after_proc
+    proc.call if proc
   end
 
   # OpenIDのときとパスワード認証で失敗の時に呼ばれる
@@ -95,7 +91,6 @@ protected
     flash[:notice] = "ログインに失敗しました"
     @user = User.new(opt)
     render 'new'
-    return
   end
 
   # Track failed login attempts
@@ -103,6 +98,7 @@ protected
     flash[:error] = "Couldn't log you in as '#{ident}'"
     logger.warn "Failed login for '#{ident}' from #{request.remote_ip} at #{Time.now.utc}"
   end
+
   # 2
   def check_valid_user
     logger.debug "filter2 check_valid_user"

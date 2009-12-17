@@ -3,12 +3,12 @@ class CategoriesController < ApplicationController
   before_filter :login_required, :except=>[:index, :show]
   # GET /categories
   def index
-    @root_categories_every_col = Category.root_categories_every_col
+    @root_categories_every_col = Category.cache_root_categories_every_col
   end
 
   # GET /categories/1
   def show
-    @category = Category.include.find(params[:id])
+    @category = Category.cache_include_find(params[:id])
   end
 
 # 操作権限チェック 2

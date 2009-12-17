@@ -16,13 +16,17 @@
 #
 
 class Question < ActiveRecord::Base
+  include ShowFieldsOmitable
+  include MailReceivable
+  include AttrRelatedMethodDefinable
+
   # 困り度(state)の文字列表現マスタ
   # フォームを作る際とバリデーションで利用する
   STATES_ORDER = [[FREE_TIME = 1,"暇なときに回答ください"],[USUAL = 2,"困ってます"],[QUICK = 3,"すぐに回答ほしいです"]]
   STATES = Hash[*STATES_ORDER.flatten]
 
-  include MailReceivable
-  include AttrRelatedMethodDefinable
+  acts_as_cached right_ttl
+
   # デフォルトの値を設定 state_default_val
   attr_default_val :state=>USUAL, :receive_mail=>ALWAYS_RECEIVE
 
@@ -50,4 +54,17 @@ class Question < ActiveRecord::Base
   named_scope :deep_include, :include=>[:user, {:answers=>:user}]
   named_scope :relate, lambda{|category| { :conditions => ['category_id = ?', category.id] } }
 
+  # 紐づくanswersが増減で場合失効させる必要がある
+  def self.cache_paginate_order_recent(category, current_page)
+    self.get_cache("#{self}.cache_paginate_order_recent(#{category.id},#{current_page})") do
+      self.relate(category).include.order_recent.paginate(:page => current_page, :per_page => 5)
+    end
+  end
+
+  # 紐づくanswersが増減で失効させる必要がある
+  def self.cache_deep_include_find(id)
+    self.get_cache("#{self}.cache_deep_include_find(#{id})") do
+      self.deep_include.find(id)
+    end
+  end
 end

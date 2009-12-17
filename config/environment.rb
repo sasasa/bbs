@@ -21,8 +21,9 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'mislav-will_paginate', :lib=>'will_paginate', :version => '~> 2.3'
   config.gem "tlsmail"
-  config.gem "ruby-openid", :lib=>'openid'
+  config.gem "ruby-openid", :lib=>'openid', :version => ">= 2.0.4"
   config.gem "erubis"
+  config.gem "abstract", :version => ">= 1.0.0"
   #config.gem 'amatsuda-i18n_generators'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -36,15 +37,16 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
   #ステートマシンを利用してメールを自動送信する
-  config.active_record.observers = :user_observer
+  config.active_record.observers = :user_observer, :cache_observer
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
-  config.time_zone = 'UTC'
+  config.time_zone = 'Tokyo'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   config.i18n.default_locale = 'ja'
-
+  #色つきログにしない
+  config.active_record.colorize_logging = false
   if File.exist?(File.join(File.dirname(__FILE__), 'local_environment.rb'))
     require File.join(File.dirname(__FILE__), 'local_environment')
     Secret.conf(config)

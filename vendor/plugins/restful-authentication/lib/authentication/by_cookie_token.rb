@@ -43,7 +43,7 @@ module Authentication
       def refresh_token
         if remember_token?
           self.remember_token = self.class.make_token 
-          save(false)      
+          save(false)
         end
       end
 

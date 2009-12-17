@@ -19,6 +19,10 @@
 #
 
 class Answer < ActiveRecord::Base
+  include ShowFieldsOmitable
+  include MailReceivable
+  include AttrRelatedMethodDefinable
+
   # 回答の種類(kind)の文字列表現マスタ
   # フォームを作る際とバリデーションで利用する
   KINDS_ORDER = [[ADVICE = 1,"アドバイス"],[REPLY = 2,"回答"],[SUPPLEMNET_REQUEST = 3,"補足要求"]]
@@ -34,8 +38,8 @@ class Answer < ActiveRecord::Base
   CHARACTERS_ORDER = [[SPECIALIST = 1, "専門家"],[EXPERIENCED = 2, "経験者"],[GENERAL = 3, "一般人"]].map(&:reverse)
   CHARACTERS = Hash[*CHARACTERS_ORDER.map(&:reverse).flatten]
 
-  include MailReceivable
-  include AttrRelatedMethodDefinable
+  acts_as_cached right_ttl
+
   # デフォルトの値を設定 kind_default_val
   attr_default_val :kind=>REPLY, :confidence=>CONSULT_COMFIDENCE, :character=>GENERAL, :receive_mail=>ALWAYS_RECEIVE
 

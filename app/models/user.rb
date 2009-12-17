@@ -25,8 +25,10 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
-
   include Authorization::AasmRoles
+  include ShowFieldsOmitable
+
+  acts_as_cached right_ttl
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40

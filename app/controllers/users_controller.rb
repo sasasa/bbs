@@ -1,30 +1,37 @@
 class UsersController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
-  
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
   # 上書き 1 @current_user
   before_filter :login_required,   :except=>[:new, :create, :activate ]
+
+  # ログインIDを持っているかチェック 1.5
+  before_filter :login_id_required, :except=>[:new_login, :create_login]
+
   # 上書き 2 @user
   before_filter :check_valid_user, :except=>[:new, :create, :activate, :new_login, :create_login]
 
   # GET    /users/new_login
   def new_login
+    redirect_to root_path if current_user.login
   end
 
+  # GET   /users/create_login
   # POST   /users/create_login
   def create_login
-    current_user.login = params[:user][:login]
-    current_user.valid?
-    fail = current_user.errors.invalid?('login')
-    #ログインIDのみチェックする
-    if fail
-      render 'new_login'
+    if request.post?
+      current_user.login = params[:user][:login]
+      current_user.valid?
+      fail = current_user.errors.invalid?('login')
+      #ログインIDのみチェックする
+      if fail
+        render 'new_login'
+      else
+        current_user.save
+        flash[:notice] = "ログイン名を登録しました。"
+        redirect_back_or_default(root_path)
+      end
     else
-      current_user.save(false)
-      flash[:notice] = "ログイン名を登録しました。"
-      redirect_back_or_default(root_path)
+      redirect_to new_login_users_path
     end
   end
 
@@ -103,7 +110,9 @@ protected
   # 2 @user
   def check_valid_user
     logger.debug "filter2 check_valid_user => @user"
-    @user = User.find(params[:id])
-    raise "filter2" unless @user.id == current_user.id
+    @user ||= User.cache_find(params[:id])
+    raise "filter2" unless ret = (@user.id == current_user.id)
+    ret
   end
+  memoize :check_valid_user
 end

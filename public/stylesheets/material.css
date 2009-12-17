@@ -66,16 +66,17 @@ table {
 /* table colgroup */
 table .title {
   background-color:#F2B05F;
-  width: 11em;
+  width: 143px;
 }
 /* table colgroup */
 table .content {
-  width: 35em;
+  width: 455px;
 }
 th, td {
   font-size: 100%;
   border: 1px solid #663300;
-  padding: 0.8em 0.5em;
+  /*padding: 0.8em 0.5em;*/
+  padding: 10.4px 6.5px;
   text-align: left;
 }
 /* error field */

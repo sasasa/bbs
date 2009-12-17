@@ -13,6 +13,12 @@ DB設定
 gemコマンド
 http://it.kndb.jp/entry/show/id/655
 
+最初にすること
+タイムゾーン設定
+http://d.hatena.ne.jp/zariganitosh/20081224/1230088816
+
+
+
 参考
 認証系の初期設定
 認証は安全側に倒してホワイトリストとする認証なしでアクセスできるアクションを個別に指定
@@ -147,5 +153,43 @@ private
 各モデルで共通機能がある時の方針は
 動的にインスタンスメソッドを生成するようなクラスメソッドを作成して対応する
 
+
+OpenID
+gem install ruby-openid
+script/plugin install open_id_authentication
+rake open_id_authentication:db:create
+
+
+rails_xss(<%=%>とかいても自動で<%=h %>となる)
+./script/plugin install git://github.com/NZKoz/rails_xss.git
+gem install erubis
+
+exception_notification(production時 errorメールを送信してくれる)
+./script/plugin install git://github.com/rails/exception_notification.git
+
+
+memcacheキャッシュさせたい
+http://d.hatena.ne.jp/kaorumori/20090409
+http://d.hatena.ne.jp/ode/20081120/1227159231
+http://d.jong.gr.jp/blog/show/2095
+http://d.hatena.ne.jp/pacodelucia/20080910/1221047549
+http://d.hatena.ne.jp/toshiyuki_saito/20090115/1231930873
+http://blog.masuidrive.jp/index.php/2008/08/05/stop_to_raise_errors_using_memcache-client/
+
+gem install memcache-client
+gem install system_timer※windowの場合はnmake cl必要 mspdb80.dll
+./script/plugin install git://github.com/defunkt/cache_fu.git
+クラスメソッドをキャッシュ
+#{self}.cache_root_categories_every_col(#{col_num})※引数の通りに書く
+インスタンスメソッドをキャッシュ
+#{self.class}#cache_ancestors_#{self.id}※インスタンスを一意に識別できる値を書く
+
+
+
+
+動かすときの準備※RAILS_ENVに気をつける
+rake db:create
+rake db:migrate
+rake db:fixtures:load
 
 

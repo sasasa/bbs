@@ -10,13 +10,13 @@ class QuestionsController < ApplicationController
   
   # GET categories/1/questions
   def index
-    @category ||= Category.find(params[:category_id])
-    @questions = Question.relate(@category).include.order_recent.paginate(:page => params[:page], :per_page => 5)
+    @category ||= Category.cache_find(params[:category_id])
+    @questions = Question.cache_paginate_order_recent(@category, params[:page])
   end
 
   # GET categories/1/questions/1
   def show
-    @question = Question.deep_include.find(params[:id])
+    @question = Question.cache_deep_include_find(params[:id])
   end
 
   # GET categories/1/questions/new
@@ -75,15 +75,17 @@ protected
   # オーバーライド 質問に権限があるユーザの操作かチェック 2 @question
   def check_valid_user
     logger.debug "filter2 check_valid_user => @question"
-    @question = Question.find(params[:id])
-    raise "filter2" unless @question.user_id == current_user.id
+    @question ||= Question.cache_find(params[:id])
+    raise "filter2" unless ret = (@question.user_id == current_user.id)
+    ret
   end
+  memoize :check_valid_user
 
   # オーバーライド パンくず作成 3 @category @topic_path @question
   def create_topic_path
     logger.debug "filter3 create_topic_path => @category @topic_path @question"
     super
-    @question ||= Question.find(params[:id]) if params[:id]
+    @question ||= Question.cache_find(params[:id]) if params[:id]
     @topic_path <<
       case action_name
       when "show"
@@ -98,7 +100,7 @@ protected
   # カテゴリと質問の整合性チェック 5 @question
   def check_category_and_question_consistency
     logger.debug "filter5 check_category_and_question_consistency => @question"
-    @question ||= Question.find(params[:id])
+    @question ||= Question.cache_find(params[:id])
     raise "filter5" unless @question.category_id == @category.id
   end
 end
