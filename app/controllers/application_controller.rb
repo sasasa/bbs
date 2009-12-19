@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   include AuthenticatedSystem
   include ExceptionNotifiable
+  include SslRequirement #before_filter :ensure_proper_protocol 1
   extend ActiveSupport::Memoizable
   # ログインチェック 1 @current_user
   # サブクラスで上書きしたり順番を入れ替えても必ず1番目に実行される ※2回実行されるため結果をmemoize
@@ -29,6 +30,7 @@ class ApplicationController < ActionController::Base
 protected
   # ログインIDを持っているかチェック 1.5
   def login_id_required
+    logger.debug "filter1.5 login_id_required"
     return false unless current_user #ログインしていないときはチェックしない
     redirect_to new_login_users_path unless ret = !!current_user && !!current_user.login #ログインしていてloginIDがない時のみ
     ret

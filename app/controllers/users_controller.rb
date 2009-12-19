@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  ssl_required :new, :create, :new_login, :create_login, :activate
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
   # 上書き 1 @current_user
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
       else
         current_user.save
         flash[:notice] = "ログイン名を登録しました。"
-        redirect_back_or_default(root_path)
+        redirect_to root_path
       end
     else
       redirect_to new_login_users_path
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
 
     if success && @user.errors.empty?
       flash[:notice] = "登録いただいたアドレスにメールを送信しましたのでご確認下さい。"#"Thanks for signing up!  We're sending you an email with your activation code."
-      redirect_back_or_default(root_path)
+      redirect_to root_path
     else
       @user.password = @user.password_confirmation = nil
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."

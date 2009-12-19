@@ -184,6 +184,22 @@ gem install system_timer※windowの場合はnmake cl必要 mspdb80.dll
 インスタンスメソッドをキャッシュ
 #{self.class}#cache_ancestors_#{self.id}※インスタンスを一意に識別できる値を書く
 
+SSLチェック
+ssl_requirement
+
+Emailチェック
+ruby script/plugin install git://github.com/Empact/validates_email_veracity_of.git
+http://github.com/Empact/validates_email_veracity_of
+http://brass.to/blog/validate_email.html
+
+message 形式エラーメッセージ
+domain_check　ドメインチェックを行うかどうか(true)
+timeout　ドメインルックアップをスキップする秒(2)
+fail_on_timeout　タイムアウトの時エラーとするか(false)
+timeout_message　タイムアウトの時のエラーメッセージ
+mx_only　AレコードはみずにMXレコードのみ確認する(false)
+invalid_domains　指定したドメイン名はエラーとする
+invalid_domain_message　指定したドメイン名のときのエラーメッセージ
 
 
 

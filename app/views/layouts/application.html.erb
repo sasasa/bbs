@@ -20,7 +20,7 @@
       ようこそ<%=h current_user.display_login_name %>さん：<%=link_to t("Log out"), logout_path %>
     <%else -%>
       <%if login_link_necessary? -%>
-        未ログイン：<%=link_to t("Log in"), login_path%>&nbsp;/&nbsp;<%=link_to t("Sign up"), signup_path %>
+        未ログイン：<%=link_to t("Log in"), login_url %>&nbsp;/&nbsp;<%=link_to t("Sign up"), signup_url %>
       <%end -%>
     <%end -%>
   </div>

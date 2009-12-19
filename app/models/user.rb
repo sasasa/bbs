@@ -43,7 +43,10 @@ class User < ActiveRecord::Base
     user.validates_presence_of     :email
     user.validates_length_of       :email,    :within => 6..100 #r@a.wk
     user.validates_uniqueness_of   :email
-    user.validates_format_of       :email,    :with => Authentication.email_regex, :message => "はメールの形式で入力してください。"#Authentication.bad_email_message
+    #user.validates_format_of       :email,    :with => Authentication.email_regex, :message => "はメールの形式で入力してください。"#Authentication.bad_email_message
+    user.validates_email_veracity_of :email, :message => "はメールの形式で入力してください。",
+                                             :timeout_message => 'は利用可能なメールアドレスを入力してください。', :timeout => 1, :fail_on_timeout => true
+                                             #:invalid_domain_message => 'は使わせへんで', :invalid_domains => ["google.com", "yahoo.co.jp"]
 
     user.validates_presence_of     :password,                   :if => :password_required?
     user.validates_presence_of     :password_confirmation,      :if => :password_required?

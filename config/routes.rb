@@ -2,10 +2,10 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "categories", :action => "index"
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  map.register '/register', :controller => 'users', :action => 'create'
-  map.signup '/signup', :controller => 'users', :action => 'new'
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.login '/login', :controller => 'sessions', :action => 'new', :requirements => { :protocol => "https" }
+  map.register '/register', :controller => 'users', :action => 'create', :requirements => { :protocol => "https" }
+  map.signup '/signup', :controller => 'users', :action => 'new', :requirements => { :protocol => "https" }
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil, :requirements => { :protocol => "https" }
 
   map.resources :categories do |category|
     category.resources :questions,

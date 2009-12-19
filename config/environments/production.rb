@@ -26,4 +26,3 @@ config.log_level = :debug
 
 # Enable threaded mode
 # config.threadsafe!
-HOSTNAME="ec2-174-129-59-36.compute-1.amazonaws.com"
