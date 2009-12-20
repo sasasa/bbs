@@ -1,5 +1,5 @@
 nbproject/*
 config/local_environment.rb
-log/*.log
+log/*
 tmp/*
 *.log
