@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   ssl_required :new, :create, :new_login, :create_login, :activate
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
-  # 上書き 1 @current_user
+  # 上書き 2 @current_user
   before_filter :login_required,   :except=>[:new, :create, :activate ]
 
-  # ログインIDを持っているかチェック 1.5
+  # ログインIDを持っているかチェック 3
   before_filter :login_id_required, :except=>[:new_login, :create_login]
 
-  # 上書き 2 @user
+  # 上書き 4 @user
   before_filter :check_valid_user, :except=>[:new, :create, :activate, :new_login, :create_login]
 
   # GET    /users/new_login
@@ -108,11 +108,11 @@ class UsersController < ApplicationController
   # supply their old password along with a new one to update it, etc.
 
 protected
-  # 2 @user
+  # 4 @user
   def check_valid_user
-    logger.debug "filter2 check_valid_user => @user"
+    logger.debug "filter4 check_valid_user => @user"
     @user ||= User.cache_find(params[:id])
-    raise "filter2" unless ret = (@user.id == current_user.id)
+    raise "filter4" unless ret = (@user.id == current_user.id)
     ret
   end
   memoize :check_valid_user

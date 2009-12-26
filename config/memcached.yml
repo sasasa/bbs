@@ -17,7 +17,7 @@ defaults:
   fastest_hash: false
 
 development:
-  sessions: false
+  sessions: true
   fragments: false
   servers: localhost:11211
 
@@ -26,7 +26,7 @@ test:
   disabled: true
 
 production:
-  sessions: false
+  sessions: true
   fragments: false
   servers: localhost:11211
 #  memory: 256

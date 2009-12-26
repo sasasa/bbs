@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
   ssl_required :new, :show, :create
 
-  # 上書き 1 @current_user
-  before_filter :login_required, :except=>[:new, :create, :show]
-  # ログインIDを持っているかチェック 1.5
+  # 上書き 2 @current_user
+  before_filter :login_required, :except=>[:new, :create, :show, :mobile_create]
+  # ログインIDを持っているかチェック 3
   before_filter :login_id_required, :except=>[:destroy]
 
   # GET   /session OPからのredirect
@@ -16,10 +16,16 @@ class SessionsController < ApplicationController
   # GET    /session/new
   def new
     # 自サイト内で元いた場所を覚えておく処理
-    if session[:return_to].blank? && !request.referer.blank? && request.referer =~ %r|^https?://#{HOSTNAME}|
-      session[:return_to] = request.referer
-    end
+    store_referer_location
     @user = User.new
+  end
+
+  # POST /mobile_create
+  # POST /mobile_auth
+  def mobile_create
+    logout_keeping_session!
+    # 簡単ログインによる認証
+    mobile_authentication
   end
 
   # POST   /session
@@ -42,6 +48,32 @@ class SessionsController < ApplicationController
   end
 
 protected
+  def mobile_authentication
+    if request.mobile?
+      carrier = request.mobile.class.name.split(/::/).last
+      mobile_ident = request.mobile.ident_subscriber || request.mobile.ident_device
+      if user = User.mobile_authenticate(carrier, mobile_ident)
+        # 識別情報がマッチしたとき
+        login_success(user){ redirect_back_or_default(root_path) }
+      elsif carrier && mobile_ident
+        user = User.new.set_attrs(:carrier=>User.mobile_carrier_num_from_name(carrier), :mobile_ident=>mobile_ident)
+        user.save(false)
+        # ログインには成功したが, 識別情報が新規でアカウントを所有していない
+        login_success(user) do
+          flash[:notice] = flash[:notice] + "次回以降簡単にログインできます。"
+          redirect_to new_login_users_path
+        end
+      else
+        # 識別情報を送信しないとき
+        mobile_logger_warn
+        auth_failed{ flash.now[:notice] = flash.now[:notice] + "識別情報を送信してください。" }
+      end
+    else
+      # 携帯でないとき
+      auth_failed
+    end
+  end
+
   def password_authentication
     if user = User.authenticate(params[:user][:login], params[:user][:password])
       login_success(user){ redirect_back_or_default(root_path) }
@@ -87,10 +119,13 @@ protected
   end
 
   # OpenIDのときとパスワード認証で失敗の時に呼ばれる
-  def auth_failed(opt={})
+  def auth_failed(opt={}, &proc)
     # ログインに失敗
-    note_failed_signin(opt[:login] || opt[:openid_url] || "OP_ERROR")
+    note_failed_signin(opt[:login] ||
+                       opt[:openid_url] ||
+                       request.mobile? && /#{Regexp.quote(mobile_auth_path)}/ =~ request.request_uri ? "mobile_error" : "OP_ERROR")
     flash[:notice] = "ログインに失敗しました"
+    proc.call if proc
     @user = User.new(opt)
     render 'new'
   end
@@ -101,8 +136,8 @@ protected
     logger.warn "Failed login for '#{ident}' from #{request.remote_ip} at #{Time.now.utc}"
   end
 
-  # 2
+  # 4
   def check_valid_user
-    logger.debug "filter2 check_valid_user"
+    logger.debug "filter4 check_valid_user"
   end
 end

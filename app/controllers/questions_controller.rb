@@ -1,11 +1,11 @@
 class QuestionsController < ApplicationController
-  # 上書き 1 @current_user
+  # 上書き 2 @current_user
   before_filter :login_required, :except=>[:index, :show]
-  # 上書き 2 @question
+  # 上書き 4 @question
   before_filter :check_valid_user, :except=>[:index, :show, :new, :create, :preview]
-  # 末端カテゴリの質問のみ閲覧、操作可能 4 @category
+  # 末端カテゴリの質問のみ閲覧、操作可能 6 @category
   before_filter :check_most_underlayer_category
-  # カテゴリと質問の整合性チェック 5 @question
+  # カテゴリと質問の整合性チェック 7 @question
   before_filter :check_category_and_question_consistency, :except=>[:index, :new, :create, :preview]
   
   # GET categories/1/questions
@@ -72,18 +72,18 @@ class QuestionsController < ApplicationController
   end
 
 protected
-  # オーバーライド 質問に権限があるユーザの操作かチェック 2 @question
+  # オーバーライド 質問に権限があるユーザの操作かチェック 4 @question
   def check_valid_user
-    logger.debug "filter2 check_valid_user => @question"
+    logger.debug "filter4 check_valid_user => @question"
     @question ||= Question.cache_find(params[:id])
-    raise "filter2" unless ret = (@question.user_id == current_user.id)
+    raise "filter4" unless ret = (@question.user_id == current_user.id)
     ret
   end
   memoize :check_valid_user
 
-  # オーバーライド パンくず作成 3 @category @topic_path @question
+  # オーバーライド パンくず作成 5 @category @topic_path @question
   def create_topic_path
-    logger.debug "filter3 create_topic_path => @category @topic_path @question"
+    logger.debug "filter5 create_topic_path => @category @topic_path @question"
     super
     @question ||= Question.cache_find(params[:id]) if params[:id]
     @topic_path <<
@@ -97,10 +97,10 @@ protected
       end
   end
 
-  # カテゴリと質問の整合性チェック 5 @question
+  # カテゴリと質問の整合性チェック 7 @question
   def check_category_and_question_consistency
-    logger.debug "filter5 check_category_and_question_consistency => @question"
+    logger.debug "filter7 check_category_and_question_consistency => @question"
     @question ||= Question.cache_find(params[:id])
-    raise "filter5" unless @question.category_id == @category.id
+    raise "filter7" unless @question.category_id == @category.id
   end
 end

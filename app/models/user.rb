@@ -28,31 +28,46 @@ class User < ActiveRecord::Base
   include Authorization::AasmRoles
   include ShowFieldsOmitable
 
+  # キャリアの文字列表現マスタ
+  # フォームを作る際とバリデーションで利用する
+  CARRIERS_ORDER = [[DOCOMO = 1,"Docomo"],
+                  [AU = 2,"Au"],
+                  [SOFTBANK = 3,"Softbank"],
+                  [VODAFONE = 4,"Vodafone"],
+                  [JPHONE = 5,"Jphone"],
+                  [EMOBILE = 6,"Emobile"],
+                  [WILLCOM = 7,"Willcom"],
+                  [DDIPOCKET = 8,"Ddipocket"]]
+  CARRIERS = Hash[*CARRIERS_ORDER.map(&:reverse).flatten]
+
   acts_as_cached right_ttl
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
-  validates_format_of       :login,    :with => Authentication.login_regex, :message => "は英数値と.-_@のみで入力してください。"#Authentication.bad_login_message
+  validates_format_of       :login,    :with => Authentication.login_regex, :message => "は英数値と.-_@のみで入力してください。"
   
-  #OpenID認証でなくログイン認証の時のみバリデーションする(identity_urlがない場合)
-  with_options :unless=>lambda{ |u| u.identity_url } do |user|
-    user.validates_format_of       :name,     :with => Authentication.name_regex, :message => "は表示可能な文字のみで入力してください。"#Authentication.bad_name_message, :allow_nil => true
-    user.validates_length_of       :name,     :maximum => 100
+  #OpenID認証や簡単ログインでなくログイン認証の時のみバリデーションする
+  with_options :if=>:validates_required? do |user|
+    user.validates_format_of :name, :with => Authentication.name_regex, :message => "は表示可能な文字のみで入力してください。"
+    user.validates_length_of :name, :maximum => 100
 
-    user.validates_presence_of     :email
-    user.validates_length_of       :email,    :within => 6..100 #r@a.wk
-    user.validates_uniqueness_of   :email
-    #user.validates_format_of       :email,    :with => Authentication.email_regex, :message => "はメールの形式で入力してください。"#Authentication.bad_email_message
+    user.validates_presence_of :email
+    user.validates_length_of :email, :within => 6..100 #r@a.wk
+    user.validates_uniqueness_of :email
+    #user.validates_format_of :email, :with => Authentication.email_regex, :message => "はメールの形式で入力してください。"
     user.validates_email_veracity_of :email, :message => "はメールの形式で入力してください。",
                                              :timeout_message => 'は利用可能なメールアドレスを入力してください。', :timeout => 1, :fail_on_timeout => true
                                              #:invalid_domain_message => 'は使わせへんで', :invalid_domains => ["google.com", "yahoo.co.jp"]
 
-    user.validates_presence_of     :password,                   :if => :password_required?
-    user.validates_presence_of     :password_confirmation,      :if => :password_required?
-    user.validates_confirmation_of :password,                   :if => :password_required?
-    user.validates_length_of       :password, :within => 6..40, :if => :password_required?
+    user.with_options :if=>lambda{ |u| u.validates_required? && u.password_required? } do |user_pass|
+      user_pass.validates_presence_of :password
+      user_pass.validates_presence_of :password_confirmation
+      user_pass.validates_confirmation_of :password
+      user_pass.validates_length_of :password, :within => 6..40
+    end
   end
+
   # 安全に倒してホワイトリストとするためカラム追加時に忘れないこと
   # 複数の権限から扱われるデータの際は一番低い権限に合わせる
   attr_accessible :login, :email, :name, :password, :password_confirmation, :remember_me, :openid_url, :identity_url
@@ -73,6 +88,16 @@ class User < ActiveRecord::Base
     u && u.authenticated?(password) ? u : nil
   end
 
+  def self.mobile_authenticate(carrier, mobile_ident)
+    return nil if carrier.blank? || mobile_ident.blank?
+    find_by_mobile_ident_and_carrier(mobile_ident, mobile_carrier_num_from_name(carrier))
+  end
+
+  def self.mobile_carrier_num_from_name(carrier)
+    return nil if carrier.blank?
+    CARRIERS[carrier]
+  end
+
   def login=(value)
     write_attribute :login, (value ? value.downcase : nil)
   end
@@ -84,6 +109,11 @@ class User < ActiveRecord::Base
   # OpenIDでの登録の場合はloginがnilの場合がある
   def display_login_name
     login_was ? login : "名無し"
+  end
+
+  # OpenID認証のときと簡単ログインの時はバリデーションする必要がない
+  def validates_required?
+    (!identity_url && !carrier && !mobile_ident)
   end
 
   protected

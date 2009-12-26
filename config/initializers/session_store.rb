@@ -11,11 +11,8 @@
 ActionController::Base.session = {
    :key         => '_bbs_session',
    :secret      => '9240c496829bed639a368a4708ae4505a2d961ea3a58d7aac809389eb97958de8cafc5a61a13b97a0c4938ab011ef327c3e2a5028db846375702dd6a85cdd0db',
-   :memcache_server => 'localhost:11211',
-   :expire_after => 86400,
-   :namespace => "bbs-#{RAILS_ENV}",
+   :cookie_only => false,
 }
-ActionController::Base.session_store = :mem_cache_store
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rake db:sessions:create")

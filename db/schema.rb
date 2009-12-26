@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091210122559) do
+ActiveRecord::Schema.define(:version => 20091224121416) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20091210122559) do
     t.string   "state",                                    :default => "passive"
     t.datetime "deleted_at"
     t.string   "identity_url"
+    t.string   "mobile_ident"
+    t.integer  "carrier"
   end
 
   add_index "users", ["identity_url"], :name => "index_users_on_identity_url"

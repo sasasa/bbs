@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  # 上書き 1 @current_user
+  # 上書き 2 @current_user
   before_filter :login_required, :except=>[:index, :show]
   # GET /categories
   def index
@@ -11,9 +11,9 @@ class CategoriesController < ApplicationController
     @category = Category.cache_include_find(params[:id])
   end
 
-# 操作権限チェック 2
+# 操作権限チェック 4
 protected
   def check_valid_user
-    logger.debug "filter2 check_valid_user"
+    logger.debug "filter4 check_valid_user"
   end
 end

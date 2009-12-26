@@ -48,9 +48,9 @@ module AuthenticatedSystem
     # To skip this in a subclassed controller:
     #
     #   skip_before_filter :login_required
-    #   1
+    #   2
     def login_required
-      logger.debug "filter1 login_required => @current_user"
+      logger.debug "filter2 login_required => @current_user"
       authorized? || access_denied
     end
     # Redirect as appropriate when an access request fails.

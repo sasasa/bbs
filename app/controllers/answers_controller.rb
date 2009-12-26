@@ -1,19 +1,19 @@
 class AnswersController < ApplicationController
-  # 上書き 1 @current_user
+  # 上書き 2 @current_user
   before_filter :login_required, :except=>[:index, :show]
-  # 上書き 2 @answer
+  # 上書き 4 @answer
   before_filter :check_valid_user, :except=>[:new, :create, :preview, :replay_edit, :replay_update, :replay_preview]
-  # 末端カテゴリの質問に属する回答のみ閲覧、操作可能 4 @category
+  # 末端カテゴリの質問に属する回答のみ閲覧、操作可能 6 @category
   before_filter :check_most_underlayer_category
-  # カテゴリと質問の整合性チェック 5 @question
+  # カテゴリと質問の整合性チェック 7 @question
   before_filter :check_category_and_question_consistency
-  # 質問と回答の整合性チェック 6 @answer
+  # 質問と回答の整合性チェック 8 @answer
   before_filter :check_question_and_answer_consistency, :except=>[:new, :create, :preview]
-  # 質問が締め切られているかチェック 7
+  # 質問が締め切られているかチェック 9
   before_filter :check_question_closed, :except=>[:replay_edit, :replay_update, :replay_preview]
-  # 回答にお礼や補足できるのは質問者のみ 8
+  # 回答にお礼や補足できるのは質問者のみ 10
   before_filter :check_question_owner, :only=>[:replay_edit, :replay_update, :replay_preview]
-  # 自分で作った質問に自分で回答できないこと 9
+  # 自分で作った質問に自分で回答できないこと 11
   before_filter :check_no_question_owner, :only=>[:new, :create, :preview]
 
   # GET /categories/1/questions/1/answers/new
@@ -113,18 +113,18 @@ class AnswersController < ApplicationController
   end
 
 protected
-  # オーバーライド 回答に権限があるユーザの操作かチェック 2 @answer
+  # オーバーライド 回答に権限があるユーザの操作かチェック 4 @answer
   def check_valid_user
-    logger.debug "filter2 check_valid_user => @answer"
+    logger.debug "filter4 check_valid_user => @answer"
     @answer ||= Answer.cache_find(params[:id])
-    raise "filter2" unless ret = (@answer.user_id == current_user.id)
+    raise "filter4" unless ret = (@answer.user_id == current_user.id)
     ret
   end
   memoize :check_valid_user
 
-  # オーバーライド パンくず作成 3 @category @topic_path @question
+  # オーバーライド パンくず作成 5 @category @topic_path @question
   def create_topic_path
-    logger.debug "filter3 create_topic_path => @category @topic_path @question"
+    logger.debug "filter5 create_topic_path => @category @topic_path @question"
     super
     @question ||= Question.cache_find(params[:question_id])
     @topic_path << [@question.title, category_question_path(@category, @question)]
@@ -141,37 +141,37 @@ protected
       end
   end
 
-  # カテゴリと質問の整合性チェック 5 @question
+  # カテゴリと質問の整合性チェック 7 @question
   def check_category_and_question_consistency
-    logger.debug "filter5 check_category_and_question_consistency => @question"
+    logger.debug "filter7 check_category_and_question_consistency => @question"
     @question ||= Question.cache_find(params[:question_id])
-    raise "filter5" unless @question.category_id == @category.id
+    raise "filter7" unless @question.category_id == @category.id
   end
 
-  # 質問と回答の整合性チェック 6 @answer
+  # 質問と回答の整合性チェック 8 @answer
   def check_question_and_answer_consistency
-    logger.debug "filter6 check_question_and_answer_consistency => @answer"
+    logger.debug "filter8 check_question_and_answer_consistency => @answer"
     @answer ||= Answer.cache_find(params[:id])
-    raise "filter6" unless @answer.question_id == @question.id
+    raise "filter8" unless @answer.question_id == @question.id
   end
   
-  # 質問が締め切られているかチェック 7
+  # 質問が締め切られているかチェック 9
   def check_question_closed
-    logger.debug "filter7 check_question_closed => @question"
+    logger.debug "filter9 check_question_closed => @question"
     @question ||= Question.cache_find(params[:question_id])
-    raise "filter7" if @question.is_closed
+    raise "filter9" if @question.is_closed
   end
 
-  # 回答にお礼や補足できるのは質問者のみ 8
+  # 回答にお礼や補足できるのは質問者のみ 10
   def check_question_owner
-    logger.debug "filter8 check_question_owner => @question"
+    logger.debug "filter10 check_question_owner => @question"
     @question ||= Question.cache_find(params[:question_id])
     redirect_to category_question_path(@category, @question) unless @question.user_id == current_user.id
   end
 
-  # 自分で作った質問に自分で回答できないこと 9
+  # 自分で作った質問に自分で回答できないこと 11
   def check_no_question_owner
-    logger.debug "filter9 check_no_question_owner => @question"
+    logger.debug "filter11 check_no_question_owner => @question"
     @question ||= Question.cache_find(params[:question_id])
     redirect_to category_question_path(@category, @question) if @question.user_id == current_user.id
   end
