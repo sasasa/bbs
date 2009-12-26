@@ -1,0 +1,31 @@
+<div class="section section-lv1">
+<%=render :partial=>"common_new.html"%>
+
+<div class="section section-lv2">
+<h2><%= "Docomo" %></h2>
+<% form_tag mobile_auth_path, :utn=>"utn" do -%>
+<div>
+<%= submit_tag 'Docomo簡単ログイン' %>
+</div>
+<% end -%>
+</div>
+
+<div class="section section-lv2">
+<h2><%= "AU" %></h2>
+<% form_for :user, :url=>mobile_auth_path do |f| -%>
+<div>
+<%= submit_tag 'AU簡単ログイン' %>
+</div>
+<% end -%>
+</div>
+
+<div class="section section-lv2">
+<h2><%= "SoftBank" %></h2>
+<% form_for :user, :url=>mobile_auth_path do |f| -%>
+<div>
+<%= submit_tag 'SoftBank簡単ログイン' %>
+</div>
+<% end -%>
+</div>
+
+</div>
