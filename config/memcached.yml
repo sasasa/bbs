@@ -1,3 +1,4 @@
+# sessionの指定とあわせる
 defaults:
   ttl: 18000
   readonly: false
@@ -5,7 +6,7 @@ defaults:
   c_threshold: 10000
   compression: true
   debug: true
-  namespace: bbs_
+  namespace: bbs-<%= RAILS_ENV %>
   sessions: false
   session_servers: false
   fragments: false
@@ -16,8 +17,9 @@ defaults:
   fast_hash: false
   fastest_hash: false
 
+#sessionsを指定しても正しく動かないので注意
 development:
-  sessions: true
+  sessions: false
   fragments: false
   servers: localhost:11211
 
@@ -26,7 +28,7 @@ test:
   disabled: true
 
 production:
-  sessions: true
+  sessions: false
   fragments: false
   servers: localhost:11211
 #  memory: 256

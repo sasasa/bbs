@@ -38,19 +38,31 @@ class SessionsController < ApplicationController
       password_authentication
     end
   end
+
+    module ActionController
+      class Request
+
+      end
+    end
   
   # /logout 
   # DELETE /session
   def destroy
-    logout_killing_session!
+    store_referer_location
+    logout_keeping_session!
     flash[:notice] = "ログアウトしました"#"You have been logged out."
-    redirect_back_or_default(request.referer || root_path)
+
+    #sessionを完全に消せないかどうかを確認する
+    request.regenerate_session
+
+    #redirect_back_or_default(request.referer || root_path)
+    redirect_back_or_default(root_path)
   end
 
 protected
   def mobile_authentication
     if request.mobile?
-      carrier = request.mobile.class.name.split(/::/).last
+      carrier = request.mobile.carrier_name
       mobile_ident = request.mobile.ident_subscriber || request.mobile.ident_device
       if user = User.mobile_authenticate(carrier, mobile_ident)
         # 識別情報がマッチしたとき
@@ -115,6 +127,9 @@ protected
     self.current_user = user #ここで@current_userが作成、ユーザIDがsessionに入る
     handle_remember_cookie!(params[:user][:remember_me] == "1") if params[:user]
     flash[:notice] = "ログインに成功しました"#"Logged in successfully"
+
+    #sessionを完全に消せないかどうかを確認する
+    request.regenerate_session
     proc.call if proc
   end
 

@@ -4,3 +4,4 @@ log/*
 log/*.pid
 tmp/*
 *.log
+vendor/plugins/jpmobile

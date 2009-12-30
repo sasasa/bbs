@@ -17,7 +17,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: bbs_development
   pool: 5
   username: root
@@ -30,7 +30,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: bbs_test
   pool: 5
   username: root
@@ -40,7 +40,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: bbs_production
   pool: 5
   username: root

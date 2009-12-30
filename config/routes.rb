@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => "categories", :action => "index"
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
 
   map.with_options(:protocol => "https") do |https|
     https.login '/login', :controller => 'sessions', :action => 'new'

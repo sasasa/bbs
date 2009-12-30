@@ -208,4 +208,6 @@ rake db:create
 rake db:migrate
 rake db:fixtures:load
 
-
+config/local_environment.rbの作成
+config/database.ymlの書き換え
+config/initializers/session_store.rbの書き換えが必要

@@ -1,0 +1,35 @@
+<div id="memcache_monitor_parent" class="memcache_monitor_parent">
+  <div class="memcache_monitor_container">
+    <%= render :partial => "/box_includes"%>
+    <div class="memcache_monitor" id = "memcache_monitor_header">
+      <a href="#" onclick="memcache_monitor_toggle(this.parentNode.nextSibling.nextSibling.id); return false;">Debug</a>
+    </div>
+    <div class="memcache_monitor_details" id="memcache_monitor_details" style="display: none;">
+      <h2 style="margin-top: 30px">Request</h2>
+        <p><b>Parameters</b>: <pre><%=h debug_request %></pre></p>
+
+      <h2 style="margin-top: 30px">Session</h2>
+        <p><b>session key</b>: <%= debug_session_key %></p>
+        <p><b>session id</b>: <%= debug_session_id %></p>
+        <p><b>session</b>: <pre><%= debug_session %></pre></p>
+        <p><b>active_record_store</b>: <pre><%= debug_active_record_store %></pre></p>
+
+      <h2 style="margin-top: 30px">Response</h2>
+        <p><b>Headers</b>: <pre><%=h debug_response %></pre></p>
+
+      <h2 style="margin-top: 30px">Memcache</h2>
+      <%@memcache_monitor.dump_data_every_server.each do |server, dump_data_hash|-%>
+        <p><b>Server:<%=server%>:<%=@memcache_monitor.memcache.namespace%>: </b>
+        <pre><%=h debug_memcache(dump_data_hash) %></pre></p>
+      <%end%>
+      <%@memcache_monitor.memcache.stats.each do |server, stas_hash|%>
+        <p><b>Server:stats: <%= server%></b>
+        <pre>
+          <%stas_hash.each do |key, val| -%>
+            <%= "#{key}=>#{val}" %>
+          <%end-%>
+        </pre></p>
+      <%end%>
+    </div>
+  </div>
+</div>

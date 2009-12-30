@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091224121416) do
+ActiveRecord::Schema.define(:version => 20091230104630) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(:version => 20091224121416) do
   add_index "questions", ["category_id", "created_at"], :name => "index_questions_on_category_id_and_created_at"
   add_index "questions", ["category_id"], :name => "index_questions_on_category_id"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

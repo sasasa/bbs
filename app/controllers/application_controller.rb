@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   def valid_mobile_check
     logger.debug "filter1 valid_mobile_check"
 
-    if request.mobile?
+    if request.mobile? && RAILS_ENV == "production"
       # リクエストヘッダーなどはモバイルでもIPが正しくない場合
       # ヘッダー偽装攻撃またはキャリアのIP帯域が変更になった可能性がある
       unless request.mobile.valid_ip?
@@ -43,20 +43,38 @@ class ApplicationController < ActionController::Base
         render '/common/not.html.erb'
         return false
       end
+      
+      # sessionに入れた固有の情報をチェック
+      tmp_token = request.mobile.carrier_name
+      tmp_token += request.user_agent
+      unless request.mobile.docomo?
+        # docomoはutnの時しか送って来ないため無視
+        tmp_token += request.mobile.ident_subscriber if request.mobile.ident_subscriber
+        tmp_token += request.mobile.ident_device if request.mobile.ident_device
+      end
+
+      if check_token = session[:mobile_check_token]
+        unless check_token == tmp_token
+          mobile_logger_warn
+          render '/common/not.html.erb'
+          return false
+        end
+      else
+        # 初回時は覚えておく
+        session[:mobile_check_token] = tmp_token
+      end
 
       # クッキーをサポートしていないときはquery_stringによる
       # 透過セッションとなる。query_stringはブラウザで自分で設定できてしまうので32文字とする
-      unless request.mobile.supports_cookie?
-        # ... ?session_key=session_id&param1=value1&param2=value2
+      unless request.mobile.supports_cookie? # ...co.jp?session_key=session_id
         #session_key
-        sess_key = (request.session_options ||
-        ActionController::Base.session_options)[:key]
-        logger.debug "session_key : " + sess_key
+        sess_key = (request.session_options || ActionController::Base.session_options)[:key]
         #session_id
         session_id = params[sess_key]
-        logger.debug "session_value : " + (session_id.nil? ? "nil" : session_id)
-        # session_idがnilのときは新しいセッションが始まるとき
         if (!session_id.nil? && session_id.size != 32)
+          # session_idがnilのときは新しいセッションが始まるとき
+          logger.warn "session_key : " + sess_key
+          logger.warn "session_value : " + (session_id.nil? ? "nil" : session_id)
           mobile_logger_warn
           render '/common/not.html.erb'
           return false
@@ -132,7 +150,7 @@ class ApplicationController < ActionController::Base
     # docomo => FOMA端末製造番号(ser + 15桁英数) MOBA端末製造番号(ser + 11桁英数)
     # softbank => 製造番号(端末シリアル) P(11桁英数) W(15桁英数) 3GC(20桁英数)
     logger.warn "Failed valid_mobile_check for " +
-    "carrier=>#{request.mobile.class.name.split(/::/).last }, " +
+    "carrier=>#{request.mobile.carrier_name }, " +
     "ident_subscriber=>#{request.mobile.ident_subscriber}, " +
     "ident_device=>#{request.mobile.ident_device}, " +
     "from #{request.remote_ip} at #{Time.now.utc}"
