@@ -78,7 +78,8 @@ module QueryReviewer
       end
 
       def enabled_by_cookie
-        @controller.send(:cookies)["query_review_enabled"]
+        #@controller.send(:cookies)["query_review_enabled"]
+        1
       end
 
       def duration_with_color(query)

@@ -5,26 +5,56 @@
       <a href="#" onclick="memcache_monitor_toggle(this.parentNode.nextSibling.nextSibling.id); return false;">Debug</a>
     </div>
     <div class="memcache_monitor_details" id="memcache_monitor_details" style="display: none;">
+      <h2>Basic</h2>
+        <p><b>controller</b>: <%=h controller_name %></p>
+        <p><b>action</b>: <%=h action_name %></p>
+        <p><b>id</b>: <%=h params[:id] %></p>
+        <p><b>method</b>: <%=h request.request_method %></p>
+        <p><b>format</b>: <%=h request.format %></p>
+        <p><b>remote_ip</b>: <%=h request.remote_ip %></p>
+        <p><b>ssl?</b>: <%=h request.ssl? %></p>
+        
+      <%if request.mobile? %>
+      <h2 style="margin-top: 30px">Mobile</h2>
+        <p><b>carrier</b>: <%=h request.mobile.carrier_name %></p>
+        <p><b>user_agent</b>: <%=h request.user_agent %></p>
+        <p><b>ident_subscriber</b>: <%=h request.mobile.ident_subscriber %></p>
+        <p><b>ident_device</b>: <%=h request.mobile.ident_device %></p>
+        <p><b>supports_cookie?</b>: <%=h request.mobile.supports_cookie? %></p>
+        <p>
+          <a href="#" onclick="document.getElementById('mobile_display').style.display='block'; return false;">
+            <b>display</b>
+          </a>: <pre id="mobile_display" style="display:none"><%=h debug_mobile_display %></pre></p>
+      <%end%>
       <h2 style="margin-top: 30px">Request</h2>
         <p><b>Parameters</b>: <pre><%=h debug_request %></pre></p>
+        <p>
+          <a href="#" onclick="document.getElementById('request_headers').style.display='block'; return false;">
+            <b>Headers</b>
+          </a>: <pre id="request_headers" style="display:none"><%=h debug_request_headers %></pre>
+        </p>
 
       <h2 style="margin-top: 30px">Session</h2>
         <p><b>session key</b>: <%= debug_session_key %></p>
         <p><b>session id</b>: <%= debug_session_id %></p>
         <p><b>session</b>: <pre><%= debug_session %></pre></p>
-        <p><b>active_record_store</b>: <pre><%= debug_active_record_store %></pre></p>
-
+        <%if request.session_options['rack.session.record'] %>
+        <p><a href="#" onclick="document.getElementById('active_record_store').style.display='block'; return false;">
+            <b>active_record_store</b>
+           </a>: <pre id="active_record_store" style="display:none"><%= debug_active_record_store %></pre>
+        </p>
+        <%end%>
       <h2 style="margin-top: 30px">Response</h2>
         <p><b>Headers</b>: <pre><%=h debug_response %></pre></p>
 
       <h2 style="margin-top: 30px">Memcache</h2>
       <%@memcache_monitor.dump_data_every_server.each do |server, dump_data_hash|-%>
-        <p><b>Server:<%=server%>:<%=@memcache_monitor.memcache.namespace%>: </b>
-        <pre><%=h debug_memcache(dump_data_hash) %></pre></p>
+      <p><a href="#" onclick="document.getElementById('memcache_data_<%= server%>').style.display='block'; return false;"><b>Server:<%=server%>:<%=@memcache_monitor.memcache.namespace%>: </b></a>
+        <pre id="memcache_data_<%= server%>" style="display:none"><%=h debug_memcache(dump_data_hash) %></pre></p>
       <%end%>
       <%@memcache_monitor.memcache.stats.each do |server, stas_hash|%>
-        <p><b>Server:stats: <%= server%></b>
-        <pre>
+      <p><a href="#" onclick="document.getElementById('memcache_stats_<%= server%>').style.display='block'; return false;"><b>Server:stats: <%= server%></b></a>
+        <pre id="memcache_stats_<%= server%>" style="display:none">
           <%stas_hash.each do |key, val| -%>
             <%= "#{key}=>#{val}" %>
           <%end-%>

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   helper :all # include all helpers, all the time
   trans_sid :mobile
+  mobile_filter :emoticon=>true, :hankaku=>true
   protect_from_forgery # See ActionController::RequestForgeryProtectionfor details
   include AuthenticatedSystem
   include ExceptionNotifiable
@@ -27,7 +28,7 @@ class ApplicationController < ActionController::Base
   # サブクラスで上書きしたり順番を入れ替えても必ず5番目に実行される
   before_filter :create_topic_path
 
-  after_filter :delete_space
+  after_filter :delete_space if RAILS_ENV == "production"
 
   protected
 
@@ -107,13 +108,11 @@ class ApplicationController < ActionController::Base
   def create_topic_path
     logger.debug "filter5 create_topic_path => @category @topic_path"
     @category = Category.cache_find(params[:category_id]) if params[:category_id]
-    @category = Category.cache_find(params[:id]) if @category.blank? && controller_name == "categories" && params[:id]
+    @category ||= Category.cache_find(params[:id]) if controller_name == "categories" && params[:id]
     @topic_path = []
     if @category
-      @topic_path << @category
-      @topic_path += @category.cache_ancestors
-      @topic_path.reverse!
-      @topic_path.map! do |obj|
+      @topic_path << [@category] + @category.cache_ancestors
+      @topic_path.flatten!.reverse!.map! do |obj|
         if obj.is_most_underlayer
           session[:page] = params[:page] unless params[:page].blank?
           session[:page] = "1" if session[:page].blank?

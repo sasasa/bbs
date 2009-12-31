@@ -2,17 +2,36 @@ module MemcacheMonitor
   module Views
     module DebugHelper
 
+      def debug_mobile_display
+        <<-EOF
+        color?=>#{request.mobile.display.color?}
+        colors=>#{request.mobile.display.colors}
+        width=>#{request.mobile.display.width}
+          browser_width=>#{request.mobile.display.browser_width}
+          physical_width=>#{request.mobile.display.physical_width}
+        height=>#{request.mobile.display.height}
+          browser_height=>#{request.mobile.display.browser_height}
+          physical_height=>#{request.mobile.display.physical_height}"
+        EOF
+      end
+
       def inspect_new_line(obj)
-        obj.inspect.gsub(',', ",\n")
+        obj.inspect.gsub(/(.*?"),/){ $1 + ",\n"}
+      end
+      
+      def debug_request_headers
+        inspect_new_line(Hash[*request.env.select{|key,val| /rack/ !~ key && val.instance_of?(String) }.flatten] )
       end
 
       def debug_request
         clean_params = request.parameters.clone
         clean_params.delete("action")
         clean_params.delete("controller")
-        clean_params.empty? ? 'None' : inspect_new_line(clean_params).
-                                         gsub(/\A\{(.*)\}\z/){ $1 }.
-                                         gsub(/(\{[^\{\}]+?\})/){ $1.gsub("\n", "") }
+        clean_params.empty? ? 'None' : indication_lined_up_hash(clean_params.inspect.gsub(',', ",\n"))
+      end
+
+      def indication_lined_up_hash(txt)
+        txt.gsub(/\A\{(.*)\}\z/){ $1 }.gsub(/(\{[^\{\}]+?\})/){ $1.gsub("\n", "") }
       end
 
       def debug_response
@@ -32,10 +51,8 @@ module MemcacheMonitor
       end
 
       def indication_session(txt)
-        txt.gsub(/\A\{(.*)\}\z/){ $1 }.
-            gsub(/([^,]+?=>[^,]+?, )[^@{]/){ $1 + "\n" }.
-            gsub(/([>}\]], )[^@]/){ $1 + "\n" }.
-            gsub(/(\{[^\{\}]+?\})/){ $1.gsub("\n", "") }
+        indication_lined_up_hash(txt.gsub(/([^,]+?=>[^,]+?, )[^@{]/){ $1 + "\n" }.
+                                     gsub(/([>}\]], )[^@]/){ $1 + "\n" })
       end
 
       def debug_active_record_store

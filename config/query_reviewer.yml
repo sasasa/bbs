@@ -1,7 +1,7 @@
 all:
     inject_view: true
     stack_trace_lines: 3
-    trace_includes_vendor: false
+    trace_includes_vendor: true
     trace_includes_lib: true
     profiling: enabled
     production_data: true
