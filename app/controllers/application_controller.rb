@@ -39,22 +39,20 @@ class ApplicationController < ActionController::Base
     if request.mobile? && RAILS_ENV == "production"
       # リクエストヘッダーなどはモバイルでもIPが正しくない場合
       # ヘッダー偽装攻撃またはキャリアのIP帯域が変更になった可能性がある
-      unless request.mobile.valid_ip?
+      if !request.mobile.valid_ip? && RAILS_ENV == "production"
         mobile_logger_warn
         render '/common/not.html.erb'
         return false
       end
       
       # sessionに入れた固有の情報をチェック
+      # TODO 変更すべき箇所
       tmp_token = request.mobile.carrier_name
       tmp_token += request.user_agent
-      unless request.mobile.docomo?
-        # docomoはutnの時しか送って来ないため無視
-        tmp_token += request.mobile.ident_subscriber if request.mobile.ident_subscriber
-        tmp_token += request.mobile.ident_device if request.mobile.ident_device
-      end
+      tmp_token += request.mobile.ident_subscriber if request.mobile.ident_subscriber
+      tmp_token += request.mobile.ident_device if request.mobile.ident_device
 
-      if check_token = session[:mobile_check_token]
+      if check_token = session["#{request.protocol}mobile_check_token"]
         unless check_token == tmp_token
           mobile_logger_warn
           render '/common/not.html.erb'
@@ -62,7 +60,7 @@ class ApplicationController < ActionController::Base
         end
       else
         # 初回時は覚えておく
-        session[:mobile_check_token] = tmp_token
+        session["#{request.protocol}mobile_check_token"] = tmp_token
       end
 
       # クッキーをサポートしていないときはquery_stringによる

@@ -10,6 +10,7 @@
   <title>Question*Answer <%= controller_name%></title>
   <%= stylesheet_link_tag 'import', :media=>"projection, screen" %><%#古いブラウザのためにmedia="projection, screen"を指定する%>
   <%= yield :style %><%# アクションで個別に読み込ませたかったらアクション内で content_for :style の中に書く %>
+  <%#入れるのであればここにjsを%>
   <%= yield :script %>
 </head>
 <body class="<%= page_name%>">
@@ -23,7 +24,7 @@
       <%end -%>
     <%end -%>
   </div>
-  <div id="title"><%=link_to "Question*Answer", root_path %><span>Hoge And Moge</span></div>
+  <div id="title"><%=link_to "Question*Answer", root_url %><span>Hoge And Moge</span></div>
   <p id="topic_path">
     <%= topic_path_link %>
   </p>
@@ -35,15 +36,17 @@
 <div id="footer">
   <div id="footer-nav">
     <ul>
-      <li><a href="#">会社案内</a></li>
-      <li><a href="#">サイトポリシー</a></li>
-      <li><a href="#">リンク</a></li>
-      <li><a href="#">著作権</a></li>
-      <li><a href="#">個人情報保護方針</a></li>
-      <li><a href="#">お問い合わせ</a></li>
+      <li><%= link_to "会社案内", root_url(:anchor=>'a') %></li>
+      <li><%= link_to "サイトポリシー", root_url(:anchor=>'a') %></li>
+      <li><%= link_to "リンク", root_url(:anchor=>'a') %></li>
+      <li><%= link_to "著作権", root_url(:anchor=>'a') %></li>
+      <li><%= link_to "個人情報保護方針", root_url(:anchor=>'a') %></li>
+      <li><%= link_to "お問い合わせ", root_url(:anchor=>'a') %></li>
     </ul>
   </div>
   <p class="copyright">Copyright © 2011 HOGE MOGES Co.,Ltd. All Rights Reserved.</p>
 </div>
+  <%= login_path%>
+  <%= login_url%>
 </body>
 </html>

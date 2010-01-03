@@ -1,7 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.root :controller => "categories", :action => "index"
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-
   map.with_options(:protocol => "https") do |https|
     https.login '/login', :controller => 'sessions', :action => 'new'
     https.auth '/auth', :controller => 'sessions', :action => 'create'
@@ -14,19 +11,24 @@ ActionController::Routing::Routes.draw do |map|
     :action => 'activate', :activation_code => nil
   end
 
-  map.resources :categories do |category|
-    category.resources :questions,
-                         :new => { :preview => [:post, :get] } do |question|
-      question.resources :answers,
-                         :member => { :replay_edit => :get, :replay_update => :put, :replay_preview => [:put, :get] },
-                         :new => { :preview => [:post, :get] }
-    end
-  end
-  map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete },
-                        :collection => { :new_login=>:get,:create_login=>[:post, :get] }
-  map.resource :session, :only => [:new, :create, :destroy, :show],
-                        :collection => { :mobile_create=>:post }
+  map.with_options(:protocol => "http") do |http|
+    http.root :controller => "categories", :action => "index"
+    http.logout '/logout', :controller => 'sessions', :action => 'destroy'
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+    http.resources :categories do |category|
+      category.resources :questions,
+                           :new => { :preview => [:post, :get] } do |question|
+        question.resources :answers,
+                           :member => { :replay_edit => :get, :replay_update => :put, :replay_preview => [:put, :get] },
+                           :new => { :preview => [:post, :get] }
+      end
+    end
+    http.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete },
+                          :collection => { :new_login=>:get,:create_login=>[:post, :get] }
+    http.resource :session, :only => [:new, :create, :destroy, :show],
+                          :collection => { :mobile_create=>:post }
+
+    http.connect ':controller/:action/:id'
+    http.connect ':controller/:action/:id.:format'
+  end
 end
