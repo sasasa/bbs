@@ -22,21 +22,11 @@
 </div>
 
 <div class="section section-lv2">
-<h2><%= "mixi OpenID" %></h2>
-<% form_for :user, :url=>session_path do |f| -%>
+<h2><%= "OpenID" %></h2>
+<% form_for :user, @user_open_id, :url=>session_path do |f| -%>
 <div>
-<%= f.hidden_field :openid_url, :value=>"https://mixi.jp/" %>
-<%= submit_tag 'mixiで認証' %>
-</div>
-<% end -%>
-</div>
-
-<div class="section section-lv2">
-<h2><%= "yahoo OpenID" %></h2>
-<% form_for :user, :url=>session_path do |f| -%>
-<div>
-<%= f.hidden_field :openid_url, :value=>"yahoo.co.jp" %>
-<%= submit_tag 'yahooで認証' %>
+<%= f.select :openid_url, f.object.openid_url_mst %><br />
+<%= submit_tag '認証' %>
 </div>
 <% end -%>
 </div>
@@ -45,22 +35,9 @@
 <h2><%= "google OpenID" %></h2>
 <% form_for :user, :url=>session_path do |f| -%>
 <div>
-<%= f.hidden_field :openid_url,
-:value=>"https://www.google.com/accounts/o8/id" %>
-<%= submit_tag 'googleで認証' %>
+<%= f.hidden_field :openid_url, :value=>"3" %>
+<%= submit_tag 'googleで認証?' %>
 </div>
 <% end -%>
 </div>
 
-<div class="section section-lv2">
-<h2><%= "OpenID" %></h2>
-<% form_for :user, :url=>session_path do |f| -%>
-<div>
-<%= f.label :openid_url %><br />
-<%= f.text_field :openid_url %>
-</div>
-<div>
-<%= submit_tag 'OpenIDで認証' %>
-</div>
-<% end -%>
-</div>

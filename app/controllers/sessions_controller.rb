@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
-  ssl_required :new, :show, :create
+  ssl_required :new, :show, :create, :mobile_create
 
   # 上書き 2 @current_user
   before_filter :login_required, :except=>[:new, :create, :show, :mobile_create]
   # ログインIDを持っているかチェック 3
   before_filter :login_id_required, :except=>[:destroy]
+
+  verify :only => [:create, :mobile_create], :method => :post, :redirect_to => { :action => :show }
+
 
   # GET   /session OPからのredirect
   def show
@@ -17,7 +20,7 @@ class SessionsController < ApplicationController
   def new
     # 自サイト内で元いた場所を覚えておく処理
     store_referer_location
-    @user = User.new
+    @user_open_id = @user = User.new
   end
 
   # POST /mobile_create
@@ -31,19 +34,14 @@ class SessionsController < ApplicationController
   # POST   /session
   def create
     logout_keeping_session!
-    if openid_url = params[:user][:openid_url] # OpenID による認証 begin
+    if openid_url = User.new(:openid_url=>params[:user][:openid_url]).openid_url_text
+      # OpenID による認証 begin
       open_id_begin(openid_url)
     else
       # パスワードによる認証
       password_authentication
     end
   end
-
-    module ActionController
-      class Request
-
-      end
-    end
   
   # /logout 
   # DELETE /session
@@ -63,7 +61,7 @@ protected
   def mobile_authentication
     if request.mobile?
       carrier = request.mobile.carrier_name
-      mobile_ident = request.mobile.ident_subscriber || request.mobile.ident_device
+      mobile_ident = request.mobile.ident_subscriber || session[:ident_subscriber]
       if user = User.mobile_authenticate(carrier, mobile_ident)
         # 識別情報がマッチしたとき
         login_success(user){ redirect_back_or_default(root_path) }
@@ -77,7 +75,7 @@ protected
         end
       else
         # 識別情報を送信しないとき
-        mobile_logger_warn
+        mobile_logger_warn("not sent ident_subscriber")
         auth_failed{ flash.now[:notice] = flash.now[:notice] + "識別情報を送信してください。" }
       end
     else
@@ -126,7 +124,7 @@ protected
   def login_success(user, &proc)
     self.current_user = user #ここで@current_userが作成、ユーザIDがsessionに入る
     handle_remember_cookie!(params[:user][:remember_me] == "1") if params[:user]
-    flash[:notice] = "ログインに成功しました"#"Logged in successfully"
+    flash[:notice] = "ログインに成功しました"
 
     #sessionを完全に消せないかどうかを確認する
     request.regenerate_session
@@ -141,7 +139,7 @@ protected
                        request.mobile? && /#{Regexp.quote(mobile_auth_path)}/ =~ request.request_uri ? "mobile_error" : "OP_ERROR")
     flash[:notice] = "ログインに失敗しました"
     proc.call if proc
-    @user = User.new(opt)
+    @user_open_id = @user = User.new(opt)
     render 'new'
   end
 

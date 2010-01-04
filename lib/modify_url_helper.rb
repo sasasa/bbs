@@ -17,12 +17,13 @@ module ActionView
         end
         alias_method_chain :extra_tags_for_form, :guid
         
+        # ひとまずUTNは使わないことに変更
         # formタグを作成する際にSSLでdocomoならutnをつける。
-        def form_tag_html_with_utn(html_options)
-          html_options.merge!(:utn=>"utn") if docomo? && request.ssl?
-          form_tag_html_without_utn(html_options)
-        end
-        alias_method_chain :form_tag_html, :utn
+#        def form_tag_html_with_utn(html_options)
+#          html_options.merge!(:utn=>"utn") if docomo? && request.ssl?
+#          form_tag_html_without_utn(html_options)
+#        end
+#        alias_method_chain :form_tag_html, :utn
     end
   end
 end
@@ -45,14 +46,15 @@ end
 module ActionView
   module Helpers #:nodoc:
     module UrlHelper
+      # ひとまずUTNは使わないことに変更
       # docomoで自サイトへのhttpsへのリンクかhttpsのページ内でのリンクのときはutnをつける
-      def link_to_with_utn(*args, &block)
-        if !block_given? && docomo? && (/#{"^https://#{request.host_with_port}"}/ =~ args.second || (request.ssl? && /#{"^http://#{request.host_with_port}"}/ !~ args.second))
-          (args.third || args[2]={})[:utn] = "utn"
-        end
-        link_to_without_utn(*args, &block)
-      end
-      alias_method_chain :link_to, :utn
+#      def link_to_with_utn(*args, &block)
+#        if !block_given? && docomo? && (/#{"^https://#{request.host_with_port}"}/ =~ args.second || (request.ssl? && /#{"^http://#{request.host_with_port}"}/ !~ args.second))
+#          (args.third || args[2]={})[:utn] = "utn"
+#        end
+#        link_to_without_utn(*args, &block)
+#      end
+#      alias_method_chain :link_to, :utn
 
       # 自サイト宛のurlを作成する際にdocomoならguidをつける
       def url_for_with_guid_on(options = {})      

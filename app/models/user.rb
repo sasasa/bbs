@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
   include Authorization::AasmRoles
   include ShowFieldsOmitable
-
+  include AttrRelatedMethodDefinable
+  
   # キャリアの文字列表現マスタ
   # フォームを作る際とバリデーションで利用する
   CARRIERS_ORDER = [[DOCOMO = 1,"Docomo"],
@@ -40,12 +41,31 @@ class User < ActiveRecord::Base
                   [DDIPOCKET = 8,"Ddipocket"]]
   CARRIERS = Hash[*CARRIERS_ORDER.map(&:reverse).flatten]
 
+  # OpenIDの文字列表現マスタ
+  # フォームを作る際とバリデーションで利用する
+  OPENID_URL_NAMES_ORDER = [[YAHOO_URL = "1", "yahoo"],[MIXI_URL = "2", "mixi"],[GOOGLE_URL = "3", "google"]].map(&:reverse)
+  # OpenIDのディスカバリで利用するURL
+  OPENID_URLS_ORDER = [[YAHOO_URL, "yahoo.co.jp"],[MIXI_URL, "https://mixi.jp/"],[GOOGLE_URL, "https://www.google.com/accounts/o8/id"]]
+  OPENID_URLS = Hash[*OPENID_URLS_ORDER.flatten]
+
   acts_as_cached right_ttl
+
+  # デフォルトの値を設定 openid_url_default_val
+  attr_default_val :openid_url=>YAHOO_URL
+
+  # インスタンスからアクセスできるマスタ openid_url_mst
+  attr_mst :openid_url=>OPENID_URL_NAMES_ORDER
+
+  # 文字列表現 openid_url_text
+  attr_text :openid_url=>OPENID_URLS
+
+  validates_inclusion_of    :openid_url, :in=>OPENID_URLS.keys, :allow_nil => true
+  validates_inclusion_of    :carrier,    :in=>CARRIERS.values,  :allow_nil => true
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
-  validates_format_of       :login,    :with => Authentication.login_regex, :message => "は英数値と.-_@のみで入力してください。"
+  validates_format_of       :login,    :with => Authentication.login_regex, :message => "は数値、文字と.-_@のみで入力してください。"
   
   #OpenID認証や簡単ログインでなくログイン認証の時のみバリデーションする
   with_options :if=>:validates_required? do |user|

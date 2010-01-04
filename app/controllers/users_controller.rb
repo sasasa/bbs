@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   # 上書き 4 @user
   before_filter :check_valid_user, :except=>[:new, :create, :activate, :new_login, :create_login]
 
+  verify :only => [:create, :create_login, :suspend, :unsuspend, :destroy, :purge], :method => :post, :redirect_to => { :action => :new }
+
   # GET    /users/new_login
   def new_login
     redirect_to root_path if current_user.login
