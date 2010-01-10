@@ -61,8 +61,9 @@ ActiveRecord::Schema.define(:version => 20100109154847) do
 
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
 
-  create_table "company_informations", :force => true do |t|
+  create_table "informations", :force => true do |t|
     t.string   "title"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20100109154847) do
     t.integer  "width"
     t.integer  "parent_id"
     t.string   "thumbnail"
-    t.integer  "company_information_id"
+    t.integer  "information_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

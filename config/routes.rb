@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :company_tmp_informations
+
   map.resources :company_informations
 
   map.resources :photos

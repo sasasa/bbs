@@ -1,0 +1,21 @@
+<h1>New company_tmp_information</h1>
+
+<% form_for(@company_tmp_information, :html=>{:multipart=>true}) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+  <% f.fields_for :photos do |photo_f| %>
+    <%= photo_f.label :uploaded_data%><br />
+    <%= photo_f.file_field :uploaded_data %><br />
+  <% end %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', company_tmp_informations_path %>

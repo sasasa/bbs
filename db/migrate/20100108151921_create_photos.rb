@@ -9,7 +9,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.integer :parent_id
       t.string :thumbnail
       
-      t.integer :company_information_id
+      t.integer :information_id
       t.timestamps
     end
   end

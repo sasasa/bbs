@@ -22,6 +22,8 @@ ja:
       address: "住所"  #g
       photo: "写真"  #g
       "company information": "会社情報"  #g
+      "company tmp information": "確定前会社情報"  #g
+      information: "情報"  #g
 
     attributes: 
       user: 
@@ -102,16 +104,36 @@ ja:
         company_information: "会社情報"  #g
         parent: "親"  #g
         uploaded_data: "画像ファイル"  #g
+        information: "情報"  #g
+        company_tmp_information: "会社TMPを情報"  #g
 
       company_information[photos_attributes][0]:
         uploaded_data: "画像ファイル"  #g
+
       company_information[photos_attributes][1]:
         uploaded_data: "画像ファイル"  #g
+
       company_information[photos_attributes][2]:
         uploaded_data: "画像ファイル"  #g
 
       company_information: 
         title: "タイトル"  #g
         photos: "写真"  #g
-        photos_attributes:
-          
+
+      information: 
+        title: "タイトル"  #g
+        photos: "写真"  #g
+
+      company_tmp_information[photos_attributes][0]:
+        uploaded_data: "画像ファイル"  #g
+
+      company_tmp_information[photos_attributes][1]:
+        uploaded_data: "画像ファイル"  #g
+
+      company_tmp_information[photos_attributes][2]:
+        uploaded_data: "画像ファイル"  #g
+
+      company_tmp_information: 
+        title: "タイトル"  #g
+        photos: "写真"  #g
+

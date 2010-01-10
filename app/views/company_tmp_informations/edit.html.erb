@@ -1,0 +1,28 @@
+<h1>Editing company_tmp_information</h1>
+
+<% form_for(@company_tmp_information, :html=>{:multipart=>true}) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+  <% f.fields_for :photos do |photo_f| %>
+    <%if photo_f.object.new_record?%>
+      <%= photo_f.label :uploaded_data%><br />
+      <%= photo_f.file_field :uploaded_data %><br />
+    <%else%>
+      <%= photo_f.label :uploaded_data%><br />
+      <%= image_tag(photo_f.object.public_filename)%><br />
+      <%= photo_f.check_box :_delete %><%= photo_f.label :_delete, "削除する"%><br />
+    <%end%>
+  <% end %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @company_tmp_information %> |
+<%= link_to 'Back', company_tmp_informations_path %>

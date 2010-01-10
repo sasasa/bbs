@@ -9,5 +9,7 @@ class Photo < ActiveRecord::Base
   
   validates_as_attachment
 
-  belongs_to :company_information
+  belongs_to :information
+  belongs_to :company_information, :foreign_key=>'information_id'
+  belongs_to :company_tmp_information, :foreign_key=>'information_id'
 end
