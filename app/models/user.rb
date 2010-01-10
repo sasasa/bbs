@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091108170711
+# Schema version: 20100106152908
 #
 # Table name: users
 #
@@ -17,6 +17,9 @@
 #  activated_at              :datetime
 #  state                     :string(255)     default("passive")
 #  deleted_at                :datetime
+#  identity_url              :string(255)
+#  mobile_ident              :string(255)
+#  carrier                   :integer(4)
 #
 
 require 'digest/sha1'

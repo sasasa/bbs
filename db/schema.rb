@@ -9,7 +9,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091230104630) do
+ActiveRecord::Schema.define(:version => 20100109154847) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "zip_code"
+    t.string   "prefecture"
+    t.string   "district"
+    t.string   "town",            :limit => 2048
+    t.string   "kana_prefecture"
+    t.string   "kana_district"
+    t.string   "kana_town",       :limit => 2048
+    t.boolean  "is_merge"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["district"], :name => "index_addresses_on_district"
+  add_index "addresses", ["kana_district"], :name => "index_addresses_on_kana_district"
+  add_index "addresses", ["kana_prefecture"], :name => "index_addresses_on_kana_prefecture"
+  add_index "addresses", ["kana_town"], :name => "index_addresses_on_kana_town"
+  add_index "addresses", ["prefecture"], :name => "index_addresses_on_prefecture"
+  add_index "addresses", ["town"], :name => "index_addresses_on_town"
+  add_index "addresses", ["zip_code"], :name => "index_addresses_on_zip_code"
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -40,6 +61,12 @@ ActiveRecord::Schema.define(:version => 20091230104630) do
 
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
 
+  create_table "company_informations", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
     t.integer "lifetime"
@@ -53,6 +80,19 @@ ActiveRecord::Schema.define(:version => 20091230104630) do
     t.integer "timestamp",  :null => false
     t.string  "server_url"
     t.string  "salt",       :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "size"
+    t.string   "content_type"
+    t.string   "filename"
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "parent_id"
+    t.string   "thumbnail"
+    t.integer  "company_information_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", :force => true do |t|

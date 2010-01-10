@@ -1,18 +1,18 @@
 # == Schema Information
-# Schema version: 20091108170711
+# Schema version: 20100106152908
 #
 # Table name: questions
 #
-#  id               :integer(4)      not null, primary key
-#  title            :string(255)
-#  content          :text
-#  state            :integer(4)
-#  is_closed        :boolean(1)
-#  receive_mail     :boolean(1)      default(TRUE)
-#  user_id          :integer(4)
-#  category_id      :integer(4)
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id           :integer(4)      not null, primary key
+#  title        :string(255)
+#  content      :text
+#  state        :integer(4)
+#  is_closed    :boolean(1)
+#  receive_mail :boolean(1)      default(TRUE)
+#  user_id      :integer(4)
+#  category_id  :integer(4)
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 class Question < ActiveRecord::Base
@@ -40,6 +40,7 @@ class Question < ActiveRecord::Base
   validates_length_of       :title,    :within => 5..60 ,   :allow_blank => true
   validates_length_of       :content,  :within => 25..2000, :allow_blank => true
   validates_inclusion_of    :state,    :in=>STATES.keys,    :allow_blank => true
+  validates_text            :content, :max_length_per_row=>60, :max_size_row=>100
 
   # 安全に倒してホワイトリストとするためカラム追加時に忘れないこと
   # 複数の権限から扱われるデータの際は一番低い権限に合わせる

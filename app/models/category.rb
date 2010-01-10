@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091108170711
+# Schema version: 20100106152908
 #
 # Table name: categories
 #

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  ssl_required :new, :show, :create, :mobile_create
-
+  #ssl_required :new, :show, :create, :mobile_create
+  ssl_required :mobile_create
   # 上書き 2 @current_user
   before_filter :login_required, :except=>[:new, :create, :show, :mobile_create]
   # ログインIDを持っているかチェック 3

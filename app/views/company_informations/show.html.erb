@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @company_information.title %>
+</p>
+<p>
+  <b>photos:</b>
+  <% @company_information.photos.each do |photo| %>
+    <%= image_tag(photo.public_filename)%>
+  <%end%>
+</p>
+
+<%= link_to 'Edit', edit_company_information_path(@company_information) %> |
+<%= link_to 'Back', company_informations_path %>

@@ -9,13 +9,17 @@ class String
     gsub(/\\x(\w{2})/){[Regexp.last_match.captures.first.to_i(16)].pack("C")}
   end
 
+  def jstrip
+    self.sub(/\A[\s　]+/,"").sub(/[\s　]+\Z/,"")
+  end
+
   def jstrip!
     self.sub!(/\A[\s　]+/,"")
     self.sub!(/[\s　]+\Z/,"")
   end
 
   def jlength
-    self.split(//s).length
+    self.split(//u).length
   end
   alias_method :jsize, :jlength
 end

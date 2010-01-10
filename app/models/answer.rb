@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20091108170711
+# Schema version: 20100106152908
 #
 # Table name: answers
 #
@@ -57,6 +57,7 @@ class Answer < ActiveRecord::Base
   validates_inclusion_of    :kind,       :in=>KINDS.keys ,     :allow_blank => true
   validates_inclusion_of    :confidence, :in=>COMFIDENCES.keys,:allow_blank => true
   validates_inclusion_of    :character,  :in=>CHARACTERS.keys, :allow_blank => true
+  validates_text            :content, :supplement_comment, :thanks_comment, :max_length_per_row=>60, :max_size_row=>100
 
   # 安全に倒してホワイトリストとするためカラム追加時に忘れないこと
   # 複数の権限から扱われるデータの際は一番低い権限に合わせる

@@ -1,3 +1,16 @@
+# == Schema Information
+# Schema version: 20100106152908
+#
+# Table name: categories
+#
+#  id                 :integer(4)      not null, primary key
+#  name               :string(255)
+#  parent_id          :integer(4)
+#  is_most_underlayer :boolean(1)
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
 data444:
   id: 1
   name: ライフ

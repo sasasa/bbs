@@ -4,11 +4,11 @@
 <% form_for :user, :url=>session_path do |f| -%>
 <div>
 <%= f.label :login %><br />
-<%= f.text_field :login %>
+<%= f.text_field :login, :autocomplete=>"off" %>
 </div>
 <div>
 <%= f.label :password %><br/>
-<%= f.password_field :password %>
+<%= f.password_field :password, :autocomplete=>"off" %>
 </div>
 <div>
 <%= f.check_box :remember_me %>
@@ -31,13 +31,4 @@
 <% end -%>
 </div>
 
-<div class="section section-lv2">
-<h2><%= "google OpenID" %></h2>
-<% form_for :user, :url=>session_path do |f| -%>
-<div>
-<%= f.hidden_field :openid_url, :value=>"3" %>
-<%= submit_tag 'googleで認証?' %>
-</div>
-<% end -%>
-</div>
 

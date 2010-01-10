@@ -1,0 +1,34 @@
+<h1>Listing photos</h1>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Size</th>
+    <th>Content type</th>
+    <th>Filename</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Parent</th>
+    <th>Thumbnail</th>
+    <th colspan="2"></th>
+  </tr>
+
+<% @photos.each do |photo| %>
+  <tr>
+    <td><%= image_tag(photo.public_filename)%></td>
+    <td><%=h photo.size %></td>
+    <td><%=h photo.content_type %></td>
+    <td><%=h photo.filename %></td>
+    <td><%=h photo.height %></td>
+    <td><%=h photo.width %></td>
+    <td><%=h photo.parent_id %></td>
+    <td><%=h photo.thumbnail %></td>
+    <td><%= link_to 'Show', photo %></td>
+    <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New photo', new_photo_path %>

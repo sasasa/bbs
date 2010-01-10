@@ -19,6 +19,9 @@ ja:
       question: "質問"  #g
       category: "カテゴリー"  #g
       answer: "回答"  #g
+      address: "住所"  #g
+      photo: "写真"  #g
+      "company information": "会社情報"  #g
 
     attributes: 
       user: 
@@ -39,6 +42,10 @@ ja:
         questions: "質問"  #g
         answers: "回答"  #g
         openid_url: "OpenIDアカウント"  #g
+        identity_url: "アイデンティティのURL"  #g
+        mobile_ident: "モバイルidentを"  #g
+        carrier: "キャリア"  #g
+
       question: 
         title: "タイトル"  #g
         category: "投稿カテゴリー"  #g
@@ -49,6 +56,7 @@ ja:
         user: "質問者"  #g
         created_at: "質問投稿日時"  #g
         answer: "答え"  #g
+        answers: "回答"  #g
 
       category: 
         name: "名前"  #g
@@ -73,3 +81,37 @@ ja:
         user: "回答者"  #g
         created_at: "回答日時"  #g
 
+      address: 
+        zip_code: "郵便番号"  #g
+        prefecture: "都道府県名"  #g
+        district: "市区町村名"  #g
+        town: "町域名"  #g
+        kana_prefecture: "かな県"  #g
+        kana_district: "かな地区"  #g
+        kana_town: "かな町"  #g
+        is_merge: "マージは"  #g
+
+      photo: 
+        size: "寸法"  #g
+        content_type: "コンテンツタイプ"  #g
+        filename: "ファイル名"  #g
+        height: "高さ"  #g
+        width: "幅"  #g
+        thumbnail: "サムネイル"  #g
+        thumbnails: "サムネール"  #g
+        company_information: "会社情報"  #g
+        parent: "親"  #g
+        uploaded_data: "画像ファイル"  #g
+
+      company_information[photos_attributes][0]:
+        uploaded_data: "画像ファイル"  #g
+      company_information[photos_attributes][1]:
+        uploaded_data: "画像ファイル"  #g
+      company_information[photos_attributes][2]:
+        uploaded_data: "画像ファイル"  #g
+
+      company_information: 
+        title: "タイトル"  #g
+        photos: "写真"  #g
+        photos_attributes:
+          

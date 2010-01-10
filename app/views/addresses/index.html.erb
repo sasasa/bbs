@@ -1,0 +1,240 @@
+<%@addresses.each do |address|%>
+  <%= address.zip_code %>:<%= address.prefecture %>:<%= address.district %>:<%= address.town %><br />
+<%end%>
+<%= will_paginate @addresses, :previous_label=>'&#171;前', :next_label=>'次&#187;' %>
+
+<%# form_for(:address, @address, :url=>search_select_addresses_path) do |f| -%>
+  <%#= error_messages_for :address %>
+  <%#*<div>%>
+    <%#= f.label :prefecture %><br/>
+    <%#= f.select :prefecture, f.object.prefecture_mst, {:prompt => "選択してください"}, :class=>"address" %>
+  <%#*</div>%>
+  <%#*<div>%>
+    <%#= f.label :district %><br/>
+    <%#= f.text_field :district %>
+    <%#= f.select :district, [], {:prompt => "選択してください"}, :class=>"address" %>
+  <%#*</div>%>
+  <%#*<div>%>
+    <%#= f.label :town %><br/>
+    <%#= f.text_field :town %>
+    <%#= f.select :town, [], {:prompt => "選択してください"}, :class=>"address" %>
+  <%#*</div>%>
+  <%#*<div>%>
+    <%#= submit_tag 'Search', :class=>"address submit", :id=>"address_submit" %>
+  <%#*</div>%>
+<%# end -%>
+
+<% form_for(:address, :url=>search_addresses_path) do |f| -%>
+  <%= error_messages_for :address %>
+  <div>
+    <%= f.label :zip_code %><span style="display: none;" id="indicator">検索中...</span><br/>
+    <%= f.text_field :zip_code, :style=>"ime-mode:disabled" %>
+  </div>
+  <div>
+    <%= f.label :prefecture %><br/>
+    <%= f.text_field :prefecture %>
+  </div>
+  <div>
+    <%= f.label :district %><br/>
+    <%= f.text_field :district %>
+  </div>
+  <div>
+    <%= f.label :town %><br/>
+    <%= f.text_field :town %>
+  </div>
+  <div id="choices"></div>
+  <div>
+    <%= submit_tag 'Search', :id=>"address_submit", :class=>"hoge" %>
+  </div>
+<% end -%>
+
+
+<%# form_for(:address, :url=>search_zip_code_addresses_path) do |f| -%>
+  <%#= error_messages_for :address %>
+  <%#*<div>%>
+    <%#= f.label :zip_code %><br/>
+    <%#= f.text_field :zip_code %>
+  <%#*</div>%>
+  <%#*<div>%>
+    <%#= submit_tag 'Search' %>
+  <%#*</div>%>
+<%# end -%>
+
+
+<%#js%>
+<%content_for :style do%>
+<%= javascript_include_tag "prototype","application" %>
+<%end%>
+<script defer="defer" type="text/javascript">
+//<![CDATA[
+
+var CompleteAddress = Class.create({
+  initialize : function(){
+    this.request = null;
+    this.zip_code = $('address_zip_code')
+    this.indicator = $('indicator');
+    this.prefecture = $('address_prefecture');
+    this.district = $('address_district');
+    this.town = $('address_town');
+    this.choices = $('choices');
+  },
+  
+  invalid_zip_code : function(){
+    alert('入力された郵便番号はございません。');
+    this.zip_code.focus();
+    this.zip_code.select();
+  },
+
+  complete : function(request){
+    this.request = request;
+    this.indicator.hide();
+    this.zip_code.enable();
+    this.prefecture.enable();
+    this.district.enable();
+    this.town.enable();
+
+    var address_array = this.request.responseJSON;
+    if(address_array.length==0)
+    {
+      this.invalid_zip_code()
+    }
+    else if(address_array.length==1)
+    {
+      address_array.each(
+        function(address)
+        {
+          this.prefecture.setValue(address["prefecture"]);
+          this.district.setValue(address["district"]);
+          this.town.setValue(this.trancate_town(address["town"]));
+          this.set_caret(address["town"].length);
+        }.bind(this)
+      );
+    }
+    else if(address_array.length>=2)
+    {
+      var town_array = [];
+      address_array.each(
+        function(address)
+        {
+          this.prefecture.setValue(address["prefecture"]);
+          this.district.setValue(address["district"]);
+          town_array.push(address["town"]);
+        }.bind(this)
+      );
+      var ul = new Element("ul");
+      town_array.each(
+        function(town)
+        {
+          var li = new Element("li");
+          Element.setStyle(li, { cursor: 'pointer', backgroundColor: '#ff6' });
+          Event.observe(li, "click", this.fill_in_town.bindAsEventListener(this), false);
+          Event.observe(li, "mouseover", this.light_background.bindAsEventListener(this), false);
+          Event.observe(li, "mouseout", this.dark_background.bindAsEventListener(this), false);
+          li.update(town);
+          ul.insert(li);
+        }.bind(this)
+      );
+      this.choices.update(ul);
+      this.choices.show();
+    }
+  },
+  
+  dark_background : function(){
+    //
+  },
+  
+  light_background : function(){
+    //
+  },
+  
+  set_caret : function(length){
+    if(Prototype.Browser.IE)
+    {
+      renge = this.town.createTextRange();
+      renge.move("character", length);
+      renge.select();
+    }
+    else
+    {
+      this.town.focus();
+      this.town.select();
+      this.town.setSelectionRange(length, length);
+    }
+  },
+  
+  fill_in_town : function(event){
+    this.town.setValue(this.trancate_town(event.element().innerHTML));
+  },
+  
+  control_indication : function(){
+    this.choices.hide();
+    this.indicator.show();
+
+    this.zip_code.blur();
+    this.zip_code.disable();
+    this.prefecture.setValue('')
+    this.district.setValue('')
+    this.town.setValue('')
+    this.prefecture.disable();
+    this.district.disable();
+    this.town.disable();
+  },
+  
+  trancate_town : function(town){
+    return town.gsub(/（[^（）]*）/, "")
+  },
+  
+  check_send_data : function(){
+    var send_data = this.zip_code.value;
+
+    if(send_data.match(/^[0-9]{7}$/) || send_data.match(/^[0-9]{3}-[0-9]{4}$/))
+    {
+      return true;
+    }
+    else
+    {
+      if( send_data.length > 7 )
+      {
+        this.invalid_zip_code()
+      }
+      return false;
+    }
+  },
+ 
+  with_data : function(){
+    return 'address[zip_code]=' + this.zip_code.value;
+  }
+  
+})
+var comp_addr = new CompleteAddress;
+new DisableSubmit([$('address_submit')], 6)
+//]]>
+</script>
+<%=observe_field(:address_zip_code, {
+:condition => "comp_addr.check_send_data()",
+:after=> "comp_addr.control_indication()",
+:complete=> "comp_addr.complete(request)",
+:update => "choices",
+:method => "post",
+:on => 'chenge',
+:frequency => 0.3,
+:url => auto_comp_addresses_path,
+:with => "comp_addr.with_data()" }) %>
+<%=observe_field(:address_prefecture, {
+  :before => "$('address_town').update(new Element('option', { value : '' }).update('選択してください'))",
+  :after=> "$$('.address').invoke('disable')",
+  :complete=> "$$('.address').invoke('enable');if($F('address_town')==''){$('address_submit').disable()};",
+  :update => :address_district,
+  :method => "post",
+  :on => 'change',
+  :url => districts_addresses_path,
+  :with => "'prefecture=' + value" }) %>
+<%=observe_field(:address_district, {
+  :update => :address_town,
+  #:function=>"alert($F('address_prefecture'))",
+  :after=> "$$('.address').invoke('disable')",
+  :complete=> "$$('.address').invoke('enable');if($F('address_town')==''){$('address_submit').disable()};",
+  :method => "post",
+  :on => 'change',
+  :url => towns_addresses_path,
+  :with => "'prefecture=' + $F('address_prefecture') + '&district=' + value" }) %>

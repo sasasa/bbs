@@ -1,0 +1,39 @@
+# == Schema Information
+# Schema version: 20100106152908
+#
+# Table name: addresses
+#
+#  id              :integer(4)      not null, primary key
+#  zip_code        :string(255)
+#  prefecture      :string(255)
+#  district        :string(255)
+#  town            :string(2048)
+#  kana_prefecture :string(255)
+#  kana_district   :string(255)
+#  kana_town       :string(2048)
+#  is_merge        :boolean(1)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  zip_code: MyString
+  prefecture: MyString
+  district: MyString
+  town: MyString
+  kana_prefecture: MyString
+  kana_district: MyString
+  kana_town: MyString
+  is_merge: false
+
+two:
+  zip_code: MyString
+  prefecture: MyString
+  district: MyString
+  town: MyString
+  kana_prefecture: MyString
+  kana_district: MyString
+  kana_town: MyString
+  is_merge: false
