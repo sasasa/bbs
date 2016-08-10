@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  # fix bug
+
   # 上書き 2 @current_user
   before_filter :login_required, :except=>[:index, :show]
   # 上書き 4 @answer
