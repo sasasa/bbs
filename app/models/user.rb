@@ -25,6 +25,7 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+  # ここにコメント追加
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
